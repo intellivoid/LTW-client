@@ -229,3 +229,9 @@
 /processorParam:TextureFormat=Color
 /build:f_/m_/f_210620210265.png
 
+#begin music_test1
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:music_test1
+

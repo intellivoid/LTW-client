@@ -12,9 +12,8 @@ using System.Globalization;
 using WotoProvider;
 using WotoProvider.Interfaces;
 using LTW.Client;
-using LTW.Controls;
-using LTW.Security;
-using LTW.LoadingService;
+using GUISharp.Controls;
+using GUISharp.Security;
 
 namespace LTW.Constants
 {
@@ -24,113 +23,7 @@ namespace LTW.Constants
 	{
 		public struct Actions
 		{
-			//[DllImport("user32.dll")]
-			//public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-			/// <summary>
-			/// check if the current process 
-			/// </summary>
-			/// <returns>
-			/// true if the current proccess is the single-one, otherwise false.
-			/// </returns>
-			public static bool IsSingleOne()
-			{
-#if __LINUX__
-				var _p = Path.Here + Program.MMF_NAME;
-				if (File.Exists(_p))
-				{
-					try
-					{
-						Universe._mapped = new FileStream(_p,
-							FileMode.Open, FileAccess.ReadWrite, FileShare.None);
-						return true;
-					}
-					catch (Exception _e)
-					{
-						if (_e is IOException _io)
-						{
-							return false;
-						}
-						Console.WriteLine(_e.Message);
-						throw;
-					}
-				}
-				else
-				{
-					return true;
-				}
-#elif __WINDOWS__
-				try
-				{
-#pragma warning disable CA1416
-					using (AppSettings.Memory = MemoryMappedFile.OpenExisting(Program.MMF_NAME))
-					{
-						if (AppSettings.Memory == null)
-						{
-							return true;
-						}
-					}
-#pragma warning enable CA1416
-					return false;
-				}
-				catch (FileNotFoundException)
-				{
-					return true;
-				}
-				catch(Exception e)
-				{
-					Console.WriteLine(e);
-					return false;
-				}
-#else
-#error Not Supported Platform.
-#endif
-			}
-			/// <summary>
-			/// create a single-one provider.
-			/// </summary>
-			/// <returns>
-			/// true if success, otherwise false.
-			/// </returns>
-			public static bool CreateSingleOne()
-			{
-#if __LINUX__
-				var _p = Path.Here + Program.MMF_NAME;
-				try
-				{
-					if (Universe._mapped == null)
-					{
-						Universe._mapped ??= File.Create(_p);
-						Universe._mapped?.Lock(0, 0);
-					}
-					return true;
-				}
-				catch (Exception _e) 
-				{
-					Debug.Print(_e.ToString());
-					Console.WriteLine(_e.Message);
-					return false;
-				}
-#elif __WINDOWS__
-				try
-				{
-					AppSettings.Memory = MemoryMappedFile.CreateNew(Program.MMF_NAME, 10000);
-					var s = AppSettings.Memory.CreateViewStream();
-					BinaryWriter writer = new BinaryWriter(s);
-					writer.Write(AppSettings.CompanyName);
-					writer.Close();
-					writer.Dispose();
-					s.Dispose();
-					return true;
-				}
-				catch
-				{
-					return false;
-				}
-#else
-#error Unsupported Platform.
-#endif
-			}
-
+			
 			internal static void ClearingPlayerProfile()
 			{
 				throw new NotImplementedException();
@@ -234,7 +127,7 @@ namespace LTW.Constants
 			/// <summary>
 			/// E = English, J = Japanese
 			/// </summary>
-			public static Language Language { get; set; } = Language.E;
+			public static char Language { get; set; } = 'E';
 			/// <summary>
 			/// Please Notice that this is not an Index,
 			/// so it should start with 1,

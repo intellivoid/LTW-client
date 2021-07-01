@@ -27,7 +27,7 @@
 		<Product>LTW-LT</Product>
 		<Description>Last Testament Of Wanderers</Description>
 		<Copyright>Copyright © wotoTeam	2021</Copyright>
-		<Company>woto_team</Company>
+		<Company>wotoTeam</Company>
 		<PackageLicenseExpression>Under The Lisence of woto_team Corporation</PackageLicenseExpression>
 	</PropertyGroup>
 	<!--===================================================-->
@@ -62,34 +62,13 @@
 	</ItemGroup>
 	<!--===================================================-->
 	<ItemGroup>
+		<PackageReference Include="GUISharp" Version="1.0.13" />
 		<PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
 		<PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
 		<PackageReference Include="TextCopy" Version="4.3.1" />
 	</ItemGroup>
 	<!--===================================================-->
-	<ItemGroup>
-		<!--======================-->
-		<Reference Include="Octokit, Version=0.50.0.0, Culture=neutral, PublicKeyToken=null">
-			<HintPath>..\octokit\0.50.0\lib\netstandard2.0\Octokit.dll</HintPath>
-		</Reference>
-		<!--======================-->
-		<Reference Include="FontStashSharp">
-			<HintPath>..\references\FontStashSharp.MonoGame\FontStashSharp.MonoGame.dll</HintPath>
-		</Reference>
-		<!--======================-->
-		<Reference Include="Cyotek.Drawing.BitmapFont">
-			<HintPath>..\references\Cyotek.Drawing.BitmapFont\Cyotek.Drawing.BitmapFont.dll</HintPath>
-		</Reference>
-		<!--======================-->
-		<Reference Include="StbImageSharp">
-			<HintPath>..\references\StbImageSharp\StbImageSharp.dll</HintPath>
-		</Reference>
-		<!--======================-->
-		<Reference Include="StbTrueTypeSharp">
-			<HintPath>..\references\StbTrueTypeSharp\StbTrueTypeSharp.dll</HintPath>
-		</Reference>
-		<!--======================-->
-	</ItemGroup>
+	
 	<!--===================================================-->
 	<ItemGroup>
 		<Content Include="..\..\..\LTW\LTW\Content\obj\DesktopGL\Content\.mgstats">
@@ -102,11 +81,6 @@
 		<Folder Include="..\..\..\LTW\LTW\Content\bin\DesktopGL\Content">
 			<Link>Content\bin\DesktopGL\Content</Link>
 		</Folder>
-		<Folder Include="Controls\Animation\AnimationCompanies" />
-		<Folder Include="Controls\GameGraphics\XDrawing" />
-		<Folder Include="GameObjects\LiveBattle" />
-		<Folder Include="GameObjects\MapObjects" />
-		<Folder Include="GameObjects\NPC" />
 	</ItemGroup>
 	<!--===================================================-->
 	<ItemGroup>
