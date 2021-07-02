@@ -227,7 +227,7 @@ In addition, the goal is to have clean, readable source. Code legibility should 
 //-------------------------------------------------
 ```
 
-and as for methods:
+And as for methods:
 ```csharp
 //-------------------------------------------------
 #region Initialize Method's Region
@@ -258,6 +258,33 @@ and as for methods:
 	// some methods here
 #endregion
 //-------------------------------------------------
+```
+
+And for `InitializeComponents()` methods:
+
+```csharp
+//---------------------------------------------
+//news:
+//---------------------------------------------
+//names:
+//status:
+//fontAndTextAligns:
+//priorities:
+//sizes:
+//ownering:
+//locations:
+//movements:
+//colors:
+//enableds:
+//texts:
+//images:
+//applyAndShow:
+//events:
+//---------------------------------------------
+//addRanges:
+//---------------------------------------------
+//finalBlow:
+//---------------------------------------------
 ```
 
 * lines should be used between regions, until the 60th character of that line.

@@ -1,12 +1,14 @@
-using GUISharp.Client;
+using GUISharp.Screens;
+using GUISharp.Controls.Elements;
+using LTW.Client;
 
-namespace LTW.Client
+namespace LTW.Screens
 {
-	public sealed partial class GameClient : GUIClient
+	public sealed partial class FirstLoadingScreen : Screen
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-			// some members here
+		public const string FirstLabelNameInRes = "Label1";
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
@@ -14,7 +16,8 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-			// some members here
+		public bool Initialized { get; private set; }
+		public FlatElement FirstFlatElement { get; private set;}
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region
@@ -34,9 +37,9 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		public GameClient() : base(ClientSizeMode.FullScreen)
+		public FirstLoadingScreen(GameClient client) : base(client)
 		{
-			MakeSingleRunner();
+			;
 		}
 		#endregion
 		//-------------------------------------------------
