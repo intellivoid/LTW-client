@@ -62,7 +62,7 @@
 	</ItemGroup>
 	<!--===================================================-->
 	<ItemGroup>
-		<PackageReference Include="GUISharp" Version="1.0.16" />
+		<PackageReference Include="GUISharp" Version="1.0.17" />
 		<PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
 		<PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
 	</ItemGroup>
