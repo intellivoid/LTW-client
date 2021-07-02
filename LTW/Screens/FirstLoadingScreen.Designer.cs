@@ -6,6 +6,7 @@ using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.Resources;
 using GUISharp.SandBox;
 using GUISharp.Controls;
+using GUISharp.Logging;
 using GUISharp.WotoProvider.Enums;
 using GUISharp.GUIObjects.Graphics;
 
@@ -17,6 +18,7 @@ namespace LTW.Screens
 		#region Initialize Method's Region
 		public override void InitializeComponents()
 		{
+			AppLogger.Log("step8");
 			
 			if (this.Initialized)
 			{
@@ -33,6 +35,8 @@ namespace LTW.Screens
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
 			this.ChangeBackground(this.LoadBackground());
+			AppLogger.Log("step9");
+
 			//---------------------------------------------
 			//names:
 			//status:
@@ -64,7 +68,9 @@ namespace LTW.Screens
 			//events:
 			//---------------------------------------------
 			//addRanges:
+			AppLogger.Log("step10");
 			this.AddElements(this.FirstFlatElement);
+			AppLogger.Log("step11");
 			//---------------------------------------------
 			//finalBlow:
 			//---------------------------------------------

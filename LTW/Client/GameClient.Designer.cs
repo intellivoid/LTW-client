@@ -1,5 +1,5 @@
+using GUISharp.Logging;
 using LTW.Screens;
-
 
 namespace LTW.Client
 {
@@ -10,11 +10,13 @@ namespace LTW.Client
 		#region Initialize Method's Region
 		protected override void InitializeComponents()
 		{
+			AppLogger.Log("step6");
 			//---------------------------------------------
 			this.IsBorderless = true;
 			//---------------------------------------------
 			//news:
 			this.CurrentScreen = new FirstLoadingScreen(this);
+			AppLogger.Log("step7");
 			//---------------------------------------------
 			//names:
 			//status:

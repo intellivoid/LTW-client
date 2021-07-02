@@ -11,8 +11,12 @@ namespace LTW
 		private static void Main()
 		{
 			AppLogger.Enabled = true;
+			AppLogger.Log(Environment.OSVersion.Platform);
+			AppLogger.Log("step1");
 			var game = new GameClient();
+			AppLogger.Log("step2");
 			game.Start();
+			AppLogger.Log("step3");
 		}
 	}
 }

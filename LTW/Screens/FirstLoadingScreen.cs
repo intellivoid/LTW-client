@@ -1,3 +1,4 @@
+using GUISharp.Logging;
 using GUISharp.Screens;
 using GUISharp.Controls.Elements;
 using LTW.Client;
@@ -39,7 +40,7 @@ namespace LTW.Screens
 		#region Constructor's Region
 		public FirstLoadingScreen(GameClient client) : base(client)
 		{
-			;
+			AppLogger.Log("FirstLoadingScreen()");
 		}
 		#endregion
 		//-------------------------------------------------
