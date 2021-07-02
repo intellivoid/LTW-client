@@ -1,5 +1,6 @@
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using GUISharp.GUIObjects.Texts;
 using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.Resources;
@@ -31,6 +32,7 @@ namespace LTW.Screens
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
+			this.ChangeBackground(this.LoadBackground());
 			//---------------------------------------------
 			//names:
 			//status:
@@ -89,7 +91,13 @@ namespace LTW.Screens
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region
-			// some methods here
+		private Texture2D LoadBackground()
+		{
+
+
+
+			return null;
+		}
 		#endregion
 		//-------------------------------------------------
 		#region Set Method's Region

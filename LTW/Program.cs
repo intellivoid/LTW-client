@@ -1,4 +1,5 @@
 ﻿using System;
+using GUISharp.Logging;
 using LTW.Client;
 
 namespace LTW
@@ -9,6 +10,7 @@ namespace LTW
 		[STAThread]
 		private static void Main()
 		{
+			AppLogger.Enabled = true;
 			var game = new GameClient();
 			game.Start();
 		}
