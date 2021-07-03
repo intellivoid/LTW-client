@@ -36,8 +36,12 @@ namespace LTW.SandBoxes
 			//---------------------------------------------
 			//news:
 			this.TitleElement = new FlatElement(this, true);
-			this.BodyElement = new FlatElement(this, true);
+			this.UnameElement = new FlatElement(this, true);
+			this.PassElement = new FlatElement(this, true);
+			this.UnameInputElement = new InputElement(this);
+			this.PassInputElement = new InputElement(this);
 			this.ExitButton = new ButtonElement(this);
+			this.LoginButton = new ButtonElement(this);
 			//---------------------------------------------
 			//loading:
 			this.LeftTexture = BigRes.GetAsTexture2D(LEFT_BABYLONIA_ENTRANCE);
@@ -45,75 +49,135 @@ namespace LTW.SandBoxes
 			this.LineTexture = BigRes.GetAsTexture2D(LINE_BABYLONIA_ENTRANCE);
 			//names:
 			this.TitleElement.SetLabelName(SandBoxLabel1NameInRes);
-			this.BodyElement.SetLabelName(SandBoxLabel2NameInRes);
+			this.UnameElement.SetLabelName(SandBoxLabel2NameInRes);
+			this.PassElement.SetLabelName(SandBoxLabel3NameInRes);
 			this.ExitButton.SetLabelName(SandBoxButton1NameInRes);
+			this.LoginButton.SetLabelName(SandBoxButton2NameInRes);
 			//status:
 			this.TitleElement.SetStatus(1);
-			this.BodyElement.SetStatus(1);
+			this.UnameElement.SetStatus(1);
+			this.PassElement.SetStatus(1);
+			this.UnameInputElement.SetStatus(1);
+			this.PassInputElement.SetStatus(1);
 			this.ExitButton.SetStatus(1);
+			this.LoginButton.SetStatus(1);
 			//fontAndTextAligns:
-			this.TitleElement.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 24));
-			this.BodyElement.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 22));
-			this.ExitButton.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 21));
+			this.TitleElement.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 28));
+			this.UnameElement.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 24));
+			this.PassElement.ChangeFont(this.UnameElement.Font);
+			this.UnameInputElement.ChangeFont(this.UnameElement.Font);
+			this.PassInputElement.ChangeFont(this.UnameElement.Font);
+			this.ExitButton.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 23));
+			this.LoginButton.ChangeFont(ExitButton.Font);
 			this.TitleElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
-			this.BodyElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
+			this.UnameElement.ChangeAlignmation(StringAlignmation.MiddleLeft);
+			this.PassElement.ChangeAlignmation(StringAlignmation.MiddleLeft);
+			this.UnameInputElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
+			this.PassInputElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
 			this.ExitButton.ChangeAlignmation(StringAlignmation.MiddleCenter);
+			this.LoginButton.ChangeAlignmation(StringAlignmation.MiddleCenter);
 			//priorities:
 			this.SandBoxPriority = SandBoxPriority.LowSandBox;
 			this.TitleElement.ChangePriority(ElementPriority.Normal);
-			this.BodyElement.ChangePriority(ElementPriority.Normal);
+			this.UnameElement.ChangePriority(ElementPriority.Normal);
+			this.PassElement.ChangePriority(ElementPriority.Normal);
+			this.UnameInputElement.ChangePriority(ElementPriority.VeryHigh);
+			this.PassInputElement.ChangePriority(ElementPriority.VeryHigh);
 			this.ExitButton.ChangePriority(ElementPriority.High);
+			this.LoginButton.ChangePriority(ElementPriority.High);
 			//sizes:
-			// this.ChangeSize(2f * (UnderForm.Width / 5), UnderForm.Height / 3);
-			
 			this.ChangeSize(2f * (GameClient.Width / 5), 3f * (GameClient.Height / 5));
-			// (3 * Width) / 4, (5 * Height) / 3
 			this.TitleElement.ChangeSize(Width - from_the_edge,
-					(Height / 4) - (SeparatorLine_Height / 2));
-			this.BodyElement.ChangeSize(Width - from_the_edge,
-				(1 * (Height / 4)) - (SeparatorLine_Height / 2));
+				(Height / 4) - (SeparatorLine_Height / 2));
+			this.UnameElement.ChangeSize(Width - (3 * from_the_edge),
+				(2 * (Height / 15)) - (SeparatorLine_Height / 2));
+			this.UnameInputElement.ChangeSize();
+			this.UnameInputElement.ChangeSize(this.UnameElement.Width - 
+				(2 * from_the_edge),
+				this.UnameInputElement.Height);
+			this.PassInputElement.ChangeSize();
+			this.PassInputElement.ChangeSize(this.UnameInputElement.Rectangle.Size);
+			this.PassElement.ChangeSize(this.UnameElement.Rectangle.Size);
 			this.ExitButton.ChangeSize();
+			this.LoginButton.ChangeSize();
 			//ownering:
 			this.TitleElement.SetOwner(this);
-			this.BodyElement.SetOwner(this);
+			this.UnameElement.SetOwner(this);
+			this.UnameInputElement.SetOwner(this);
+			this.PassInputElement.SetOwner(this);
+			this.PassElement.SetOwner(this);
 			this.ExitButton.SetOwner(this);
+			this.LoginButton.SetOwner(this);
 			//locations:
 			this.CenterToScreen();
 			this.TitleElement.ChangeLocation(from_the_edge / 2, 0);
-			this.BodyElement.ChangeLocation(TitleElement.RealPosition.X, 
+			this.UnameElement.ChangeLocation(TitleElement.RealPosition.X +
+				from_the_edge, 
 				TitleElement.RealPosition.Y + TitleElement.Height + 
 				SeparatorLine_Height);
+			this.UnameInputElement.ChangeLocation(this.UnameElement.RealPosition.X +
+				from_the_edge, this.UnameElement.RealPosition.Y + 
+				this.UnameElement.Height + (from_the_edge / 2));
+			this.PassElement.ChangeLocation(this.UnameElement.RealPosition.X,
+				this.UnameInputElement.RealPosition.Y + 
+				this.UnameInputElement.Height + from_the_edge);
+			this.PassInputElement.ChangeLocation(this.UnameInputElement.RealPosition.X,
+				this.PassElement.RealPosition.Y + 
+				this.PassElement.Height + (from_the_edge / 2));
 			this.ExitButton.ChangeLocation((this.Width / 2) -
-				(this.ExitButton.Width / 2),
-				this.BodyElement.RealPosition.Y + this.BodyElement.Height +
+				this.ExitButton.Width - (from_the_edge / 2),
+				this.Height - this.ExitButton.Height -
 				(2 * from_the_edge));
+			this.LoginButton.ChangeLocation((this.Width / 2) +
+				(from_the_edge / 2),
+				this.ExitButton.RealPosition.Y);
 			//rectangles:
 			this.CalculateTexturesRect();
 			//movements:
 			this.TitleElement.ChangeMovements(ElementMovements.NoMovements);
-			this.BodyElement.ChangeMovements(ElementMovements.NoMovements);
+			this.UnameElement.ChangeMovements(ElementMovements.NoMovements);
+			this.PassElement.ChangeMovements(ElementMovements.NoMovements);
 			//colors:
 			this.TitleElement.ChangeForeColor(Color.White);
-			this.BodyElement.ChangeForeColor(Color.White);
+			this.UnameElement.ChangeForeColor(Color.White);
+			this.PassElement.ChangeForeColor(Color.White);
+			this.UnameInputElement.ChangeBorder(InputBorders.NoBorder);
+			this.PassInputElement.ChangeBorder(InputBorders.NoBorder);
 			this.ExitButton.ChangeBorder(ButtonColors.SpecialRed);
+			this.LoginButton.ChangeBorder(ButtonColors.SpecialGreenYellow);
 			//enableds:
 			this.TitleElement.EnableOwnerMover();
-			this.BodyElement.EnableOwnerMover();
+			this.UnameElement.EnableOwnerMover();
+			this.PassElement.EnableOwnerMover();
+			// this.UnameInputElement.EnableOwnerMover(); TODO: override this in GUISharp.
+			this.UnameInputElement.EnableMouseEnterEffect();
+			this.PassInputElement.EnableMouseEnterEffect();
 			this.ExitButton.EnableMouseEnterEffect();
+			this.LoginButton.EnableMouseEnterEffect();
 			//texts:
 			this.TitleElement.SetLabelText();
-			this.BodyElement.SetLabelText();
+			this.UnameElement.SetLabelText();
+			this.PassElement.SetLabelText();
 			this.ExitButton.SetLabelText();
+			this.LoginButton.SetLabelText();
 			//images:
 			this._flat.ChangeImageSizeMode(ImageSizeMode.Center);
 			this._flat.ChangeImage(SandBoxBackGNameInRes);
 			//applyAndShow:
 			this.TitleElement.Apply();
 			this.TitleElement.Show();
-			this.BodyElement.Apply();
-			this.BodyElement.Show();
+			this.UnameElement.Apply();
+			this.UnameElement.Show();
+			this.UnameInputElement.Apply();
+			this.UnameInputElement.Show();
+			this.PassElement.Apply();
+			this.PassElement.Show();
+			this.PassInputElement.Apply();
+			this.PassInputElement.Show();
 			this.ExitButton.Apply();
 			this.ExitButton.Show();
+			this.LoginButton.Apply();
+			this.LoginButton.Show();
 			//events:
 			//---------------------------------------------
 			//addRanges:

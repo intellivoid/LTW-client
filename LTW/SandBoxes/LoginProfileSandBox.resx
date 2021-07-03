@@ -123,19 +123,31 @@
 	<data name="Button1_In_SandBox_E1" xml:space="preserve">
 		<value>Exit</value>
 	</data>
+	<data name="Button2_In_SandBox_E1" xml:space="preserve">
+		<value>Login</value>
+	</data>
 	<data name="Label1_In_SandBox_E1" xml:space="preserve">
-		<value>test title!</value>
+		<value>Login or Sign up!</value>
 	</data>
 	<data name="Label2_In_SandBox_E1" xml:space="preserve">
-		<value>this is a test for body.</value>
+		<value>Enter your username:</value>
+	</data>
+	<data name="Label3_In_SandBox_E1" xml:space="preserve">
+		<value>Enter your password:</value>
 	</data>
 	<data name="SandBoxButton1_Name" xml:space="preserve">
 		<value>Button1_In_SandBox</value>
+	</data>
+	<data name="SandBoxButton2_Name" xml:space="preserve">
+		<value>Button2_In_SandBox</value>
 	</data>
 	<data name="SandBoxLabel1_Name" xml:space="preserve">
 		<value>Label1_In_SandBox</value>
 	</data>
 	<data name="SandBoxLabel2_Name" xml:space="preserve">
 		<value>Label2_In_SandBox</value>
+	</data>
+	<data name="SandBoxLabel3_Name" xml:space="preserve">
+		<value>Label3_In_SandBox</value>
 	</data>
 </root>
