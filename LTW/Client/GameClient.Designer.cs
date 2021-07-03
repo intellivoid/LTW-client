@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using System.Threading;
 using GUISharp.Logging;
 using LTW.Screens;
 
@@ -34,7 +36,11 @@ namespace LTW.Client
 			//addRanges:
 			//---------------------------------------------
 			//finalBlow:
-			this.CurrentScreen.InitializeComponents();
+			Task.Run(() =>
+			{
+				Thread.Sleep(1000);
+				this.CurrentScreen.InitializeComponents();
+			});
 			//---------------------------------------------
 			
 			

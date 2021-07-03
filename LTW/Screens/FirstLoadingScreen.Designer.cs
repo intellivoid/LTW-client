@@ -9,6 +9,7 @@ using GUISharp.Controls;
 using GUISharp.Logging;
 using GUISharp.WotoProvider.Enums;
 using GUISharp.GUIObjects.Graphics;
+using LTW.SandBoxes;
 
 namespace LTW.Screens
 {
@@ -32,8 +33,10 @@ namespace LTW.Screens
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
+			LTW.SandBoxes.LoginProfileSandBox test = new();
+			//GUISharp.SandBox.ErrorSandBoxes.ConnectionClosedSandBox test = new();
 			var num = DateTime.Now.Second % MAX_BACK_ENTERY;
-			this.ChangeBackgroundRes("BackEntry" + num);
+			this.ChangeBackgroundRes(EntryFileNameInRes + num);
 			//---------------------------------------------
 			//names:
 			//status:
@@ -55,6 +58,7 @@ namespace LTW.Screens
 			//colors:
 			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			//enableds:
+			test.Enable();
 			this.FirstFlatElement.Enable();
 			//texts:
 			this.FirstFlatElement.SetLabelText();
@@ -63,10 +67,12 @@ namespace LTW.Screens
 			//applyAndShow:
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();
+			test.Apply();
+			test.Show();
 			//events:
 			//---------------------------------------------
 			//addRanges:
-			this.AddElements(this.FirstFlatElement);
+			this.AddElements(this.FirstFlatElement, test);
 			//---------------------------------------------
 			//finalBlow:
 			//---------------------------------------------

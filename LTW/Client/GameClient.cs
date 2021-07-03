@@ -1,5 +1,6 @@
 using GUISharp.Client;
 using GUISharp.Logging;
+using LTW.Constants;
 
 namespace LTW.Client
 {
@@ -38,6 +39,7 @@ namespace LTW.Client
 		public GameClient() : base(ClientSizeMode.FullScreen)
 		{
 			MakeSingleRunner();
+			ThereIsConstants.Forming.GameClient = this;
 		}
 		#endregion
 		//-------------------------------------------------
