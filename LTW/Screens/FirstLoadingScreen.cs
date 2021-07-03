@@ -9,7 +9,9 @@ namespace LTW.Screens
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-		public const string FirstLabelNameInRes = "Label1";
+		private const int MAX_BACK_ENTERY = 8;
+		private const string FirstLabelNameInRes = "Label1";
+		private const string EntryFileNameInRes = "BackEntry";
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
@@ -40,7 +42,7 @@ namespace LTW.Screens
 		#region Constructor's Region
 		public FirstLoadingScreen(GameClient client) : base(client)
 		{
-			AppLogger.Log("FirstLoadingScreen()");
+			
 		}
 		#endregion
 		//-------------------------------------------------

@@ -1,4 +1,4 @@
-
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GUISharp.GUIObjects.Texts;
@@ -18,8 +18,6 @@ namespace LTW.Screens
 		#region Initialize Method's Region
 		public override void InitializeComponents()
 		{
-			AppLogger.Log("step8");
-			
 			if (this.Initialized)
 			{
 				return;
@@ -34,9 +32,8 @@ namespace LTW.Screens
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
-			this.ChangeBackground(this.LoadBackground());
-			AppLogger.Log("step9");
-
+			var num = DateTime.Now.Second % MAX_BACK_ENTERY;
+			this.ChangeBackgroundRes("BackEntry" + num);
 			//---------------------------------------------
 			//names:
 			//status:
@@ -46,13 +43,14 @@ namespace LTW.Screens
 			//priorities:
 			this.FirstFlatElement.ChangePriority(ElementPriority.Low);
 			//sizes:
-			this.FirstFlatElement.ChangeSize(this.Client.Width / 6,
-				this.Client.Height / 6);
+			this.FirstFlatElement.ChangeSize(this.Client.Width / 7,
+				this.Client.Height / 7);
 			//ownering:
 			//locations:
 			this.FirstFlatElement.ChangeLocation((Client.Width - FirstFlatElement.Width) -
 				(2 * SandBoxBase.from_the_edge),
-				(Client.Height - FirstFlatElement.Height) - SandBoxBase.from_the_edge);
+				(Client.Height - FirstFlatElement.Height) -
+				(2 * SandBoxBase.from_the_edge));
 			//movements:
 			//colors:
 			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
@@ -68,9 +66,7 @@ namespace LTW.Screens
 			//events:
 			//---------------------------------------------
 			//addRanges:
-			AppLogger.Log("step10");
 			this.AddElements(this.FirstFlatElement);
-			AppLogger.Log("step11");
 			//---------------------------------------------
 			//finalBlow:
 			//---------------------------------------------
