@@ -66,9 +66,8 @@ namespace LTW.Client
 		{
 			var w = this.GetDevice().DisplayMode.Width;
 			var h = this.GetDevice().DisplayMode.Height;
-			AppLogger.Log(w, h);
-			Woto_WRate = WOTO_STD_WIDTH / w;
-			Woto_HRate = WOTO_STD_HEIGHT / h;
+			Woto_WRate = (float)WOTO_STD_WIDTH / 1366;
+			Woto_HRate = (float)WOTO_STD_HEIGHT / 768;
 		}
 		#endregion
 		//-------------------------------------------------
