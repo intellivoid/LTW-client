@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using System.Threading;
 using GUISharp.Logging;
+using static LTW.Constants.GameParams;
 using LTW.Screens;
 
 namespace LTW.Client
@@ -14,6 +15,7 @@ namespace LTW.Client
 		{
 			//---------------------------------------------
 			this.IsBorderless = true;
+			this.CalculateRates();
 			//---------------------------------------------
 			//news:
 			this.CurrentScreen = new FirstLoadingScreen(this);
@@ -60,7 +62,14 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region ordinary Method's Region
-			// some methods here
+		private void CalculateRates()
+		{
+			var w = this.GetDevice().DisplayMode.Width;
+			var h = this.GetDevice().DisplayMode.Height;
+			AppLogger.Log(w, h);
+			Woto_WRate = WOTO_STD_WIDTH / w;
+			Woto_HRate = WOTO_STD_HEIGHT / h;
+		}
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region

@@ -10,6 +10,7 @@ using GUISharp.Logging;
 using GUISharp.WotoProvider.Enums;
 using GUISharp.GUIObjects.Graphics;
 using LTW.SandBoxes;
+using static LTW.Constants.GameParams;
 
 namespace LTW.Screens
 {
@@ -46,8 +47,8 @@ namespace LTW.Screens
 			//priorities:
 			this.FirstFlatElement.ChangePriority(ElementPriority.Low);
 			//sizes:
-			this.FirstFlatElement.ChangeSize(this.Client.Width / 7,
-				this.Client.Height / 7);
+			this.FirstFlatElement.ChangeSize(Woto_WRate * (this.Client.Width / 6),
+				Woto_HRate * (this.Client.Height / 6));
 			//ownering:
 			//locations:
 			this.FirstFlatElement.ChangeLocation((Client.Width - FirstFlatElement.Width) -
