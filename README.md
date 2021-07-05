@@ -37,6 +37,7 @@ https://icons8.com/vue-static/landings/pricing/icons8-license.pdf
 
  * Linux
    * Ubuntu 19.04 or later.
+   * Arch linux
 
  * Windows
    * Windows 7 or later.
