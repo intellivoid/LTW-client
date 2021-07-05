@@ -70,7 +70,7 @@ namespace LTW.Constants
 #else
 #error Unsupported Platform.
 #endif
-			public const string Content = "Content";
+			public const string GameData = "GameData";
 			//---------------------------------------------
 			public static string Here
 			{
@@ -79,7 +79,7 @@ namespace LTW.Constants
 			}
 			public static string Datas_Path
 			{
-				get => Here + Content;
+				get => Here + GameData;
 			}
 			public static string AccountInfo_File_Path { get; internal set; }
 			public static string ProfileInfo_File_Path { get; internal set; }

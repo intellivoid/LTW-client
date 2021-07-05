@@ -34,6 +34,7 @@ namespace LTW.SandBoxes
 		#region Initialize Method's Region
 		private void InitializeComponent()
 		{
+			Content.RootDirectory = "GameData";
 			//---------------------------------------------
 			//news:
 			this.TitleElement = new FlatElement(this, true);
@@ -90,15 +91,15 @@ namespace LTW.SandBoxes
 			this.ChangeSize(Woto_WRate * (2f * (GameClient.Width / 5)), 
 				Woto_HRate * (3f * (GameClient.Height / 5)));
 			this.TitleElement.ChangeSize(Width - from_the_edge,
-				Woto_HRate * ((Height / 4) - (SeparatorLine_Height / 2)));
-			this.UnameElement.ChangeSize(Woto_WRate * (Width - 
-				(3 * from_the_edge)),
-				Woto_HRate * ((2 * (Height / 15)) -
-				(SeparatorLine_Height / 2)));
+				(Height / 4) - (SeparatorLine_Height / 2));
+			this.UnameElement.ChangeSize(Width - 
+				(3 * from_the_edge),
+				(2 * (Height / 15)) -
+				(SeparatorLine_Height / 2));
 			this.UnameInputElement.ChangeSize();
-			this.UnameInputElement.ChangeSize(Woto_WRate * (this.UnameElement.Width - 
-				(2 * from_the_edge)),
-				Woto_HRate * this.UnameInputElement.Height);
+			this.UnameInputElement.ChangeSize(this.UnameElement.Width - 
+				(2 * from_the_edge),
+				this.UnameInputElement.Height);
 			this.PassInputElement.ChangeSize();
 			this.PassInputElement.ChangeSize(this.UnameInputElement.Rectangle.Size);
 			this.PassElement.ChangeSize(this.UnameElement.Rectangle.Size);
@@ -156,6 +157,7 @@ namespace LTW.SandBoxes
 			this.UnameInputElement.Enable();
 			this.PassInputElement.Enable();
 			this.UnameInputElement.EnableMouseEnterEffect();
+			this.PassInputElement.EnablePasswordMode();
 			this.PassInputElement.EnableMouseEnterEffect();
 			this.ExitButton.EnableMouseEnterEffect();
 			this.LoginButton.EnableMouseEnterEffect();
@@ -166,8 +168,9 @@ namespace LTW.SandBoxes
 			this.ExitButton.SetLabelText();
 			this.LoginButton.SetLabelText();
 			//images:
-			this._flat.ChangeImageSizeMode(ImageSizeMode.Center);
-			this._flat.ChangeImage(SandBoxBackGNameInRes);
+			var t = Content.Load<Microsoft.Xna.Framework.Graphics.Texture2D>("f_/s_b_/f_191020200758");
+			this.ChangeImage(t);
+			this.ChangeImageSizeMode(ImageSizeMode.Center);
 			//applyAndShow:
 			this.TitleElement.Apply();
 			this.TitleElement.Show();
@@ -209,7 +212,7 @@ namespace LTW.SandBoxes
 				return;
 			}
 			// draw the surface of the sandbox.
-			this._flat?.Draw(gameTime, spriteBatch);
+			base.Draw(gameTime, spriteBatch);
 			//spriteBatch.Start();
 			if (this.LeftTexture != null && !this.LeftTexture.IsDisposed)
 			{
@@ -223,9 +226,6 @@ namespace LTW.SandBoxes
 			{
 				spriteBatch.Draw(this.RightTexture, this.RightTextureRectangle, this.Tint);
 			}
-			//spriteBatch.Finish();
-			// draw the manager
-			this.Manager?.Draw(gameTime, spriteBatch);
 		}
 		#endregion
 		//-------------------------------------------------
