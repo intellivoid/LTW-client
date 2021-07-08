@@ -62,7 +62,7 @@
 	</ItemGroup>
 	<!--===================================================-->
 	<ItemGroup>
-		<PackageReference Include="GUISharp" Version="1.0.16" />
+		<PackageReference Include="GUISharp" Version="1.0.32" />
 		<PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
 		<PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
 	</ItemGroup>
@@ -70,15 +70,15 @@
 	
 	<!--===================================================-->
 	<ItemGroup>
-		<Content Include="..\..\..\LTW\LTW\Content\obj\DesktopGL\Content\.mgstats">
-			<Link>Content\obj\DesktopGL\Content\.mgstats</Link>
+		<Content Include="..\..\..\LTW\LTW\GameData\obj\DesktopGL\GameData\.mgstats">
+			<Link>GameData\obj\DesktopGL\GameData\.mgstats</Link>
 		</Content>
 	</ItemGroup>
 	<!--===================================================-->
 	<ItemGroup>
 		<!--Include the project folders here.-->
-		<Folder Include="..\..\..\LTW\LTW\Content\bin\DesktopGL\Content">
-			<Link>Content\bin\DesktopGL\Content</Link>
+		<Folder Include="..\..\..\LTW\LTW\GameData\bin\DesktopGL\GameData">
+			<Link>GameData\bin\DesktopGL\GameData</Link>
 		</Folder>
 	</ItemGroup>
 	<!--===================================================-->

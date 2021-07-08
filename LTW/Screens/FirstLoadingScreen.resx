@@ -153,4 +153,28 @@
 		<value>..\Resources\screens\first_loadoing_screen\f_270220212252.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</data>
 	<!--===================================================-->
+	<data name="BackEntry0" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry0.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
+	<data name="BackEntry1" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry1.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
+	<data name="BackEntry2" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry2.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
+	<data name="BackEntry3" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry3.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
+	<data name="BackEntry4" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry4.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
+	<data name="BackEntry5" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry5.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
+	<data name="BackEntry6" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry6.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
+	<data name="BackEntry7" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
+		<value>..\Resources\screens\first_loadoing_screen\BackEntry7.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</data>
 </root>

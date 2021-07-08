@@ -1,18 +1,16 @@
-using GUISharp.Client;
-using GUISharp.Logging;
-using LTW.Constants;
-
-namespace LTW.Client
+namespace LTW.Constants
 {
-	public sealed partial class GameClient : GUIClient
+	static class GameParams
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-			// some members here
+		internal const int WOTO_STD_WIDTH = 1024;
+		internal const int WOTO_STD_HEIGHT = 768;
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
-			// some members here
+		internal static float Woto_WRate { get; set; }
+		internal static float Woto_HRate { get; set; }
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
@@ -36,11 +34,7 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		public GameClient() : base(ClientSizeMode.FullScreen)
-		{
-			MakeSingleRunner();
-			ThereIsConstants.Forming.GameClient = this;
-		}
+			// some members here
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region

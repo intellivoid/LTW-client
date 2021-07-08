@@ -1,4 +1,7 @@
+using System.Threading.Tasks;
+using System.Threading;
 using GUISharp.Logging;
+using static LTW.Constants.GameParams;
 using LTW.Screens;
 
 namespace LTW.Client
@@ -10,13 +13,12 @@ namespace LTW.Client
 		#region Initialize Method's Region
 		protected override void InitializeComponents()
 		{
-			AppLogger.Log("step6");
 			//---------------------------------------------
 			this.IsBorderless = true;
+			this.CalculateRates();
 			//---------------------------------------------
 			//news:
 			this.CurrentScreen = new FirstLoadingScreen(this);
-			AppLogger.Log("step7");
 			//---------------------------------------------
 			//names:
 			//status:
@@ -36,7 +38,11 @@ namespace LTW.Client
 			//addRanges:
 			//---------------------------------------------
 			//finalBlow:
-			this.CurrentScreen.InitializeComponents();
+			Task.Run(() =>
+			{
+				Thread.Sleep(1000);
+				this.CurrentScreen.InitializeComponents();
+			});
 			//---------------------------------------------
 			
 			
@@ -56,7 +62,13 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region ordinary Method's Region
-			// some methods here
+		private void CalculateRates()
+		{
+			var w = this.GetDevice().DisplayMode.Width;
+			var h = this.GetDevice().DisplayMode.Height;
+			Woto_WRate = (float)WOTO_STD_WIDTH / (float)w;
+			Woto_HRate = (float)WOTO_STD_HEIGHT / (float)h;
+		}
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region

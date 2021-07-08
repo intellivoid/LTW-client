@@ -1,4 +1,4 @@
-
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GUISharp.GUIObjects.Texts;
@@ -9,6 +9,8 @@ using GUISharp.Controls;
 using GUISharp.Logging;
 using GUISharp.WotoProvider.Enums;
 using GUISharp.GUIObjects.Graphics;
+using LTW.SandBoxes;
+using static LTW.Constants.GameParams;
 
 namespace LTW.Screens
 {
@@ -18,8 +20,6 @@ namespace LTW.Screens
 		#region Initialize Method's Region
 		public override void InitializeComponents()
 		{
-			AppLogger.Log("step8");
-			
 			if (this.Initialized)
 			{
 				return;
@@ -34,9 +34,10 @@ namespace LTW.Screens
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
-			this.ChangeBackground(this.LoadBackground());
-			AppLogger.Log("step9");
-
+			LTW.SandBoxes.LoginProfileSandBox test = new();
+			//GUISharp.SandBox.ErrorSandBoxes.ConnectionClosedSandBox test = new();
+			var num = DateTime.Now.Second % MAX_BACK_ENTERY;
+			this.ChangeBackgroundRes(EntryFileNameInRes + num);
 			//---------------------------------------------
 			//names:
 			//status:
@@ -46,17 +47,19 @@ namespace LTW.Screens
 			//priorities:
 			this.FirstFlatElement.ChangePriority(ElementPriority.Low);
 			//sizes:
-			this.FirstFlatElement.ChangeSize(this.Client.Width / 6,
-				this.Client.Height / 6);
+			this.FirstFlatElement.ChangeSize(Woto_WRate * (this.Client.Width / 6),
+				Woto_HRate * (this.Client.Height / 6));
 			//ownering:
 			//locations:
 			this.FirstFlatElement.ChangeLocation((Client.Width - FirstFlatElement.Width) -
 				(2 * SandBoxBase.from_the_edge),
-				(Client.Height - FirstFlatElement.Height) - SandBoxBase.from_the_edge);
+				(Client.Height - FirstFlatElement.Height) -
+				(2 * SandBoxBase.from_the_edge));
 			//movements:
 			//colors:
 			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			//enableds:
+			test.Enable();
 			this.FirstFlatElement.Enable();
 			//texts:
 			this.FirstFlatElement.SetLabelText();
@@ -65,12 +68,12 @@ namespace LTW.Screens
 			//applyAndShow:
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();
+			test.Apply();
+			test.Show();
 			//events:
 			//---------------------------------------------
 			//addRanges:
-			AppLogger.Log("step10");
-			this.AddElements(this.FirstFlatElement);
-			AppLogger.Log("step11");
+			this.AddElements(this.FirstFlatElement, test);
 			//---------------------------------------------
 			//finalBlow:
 			//---------------------------------------------

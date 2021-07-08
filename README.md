@@ -1,6 +1,6 @@
 <!--
 	Last Testament of Wanderers 
-	Copyright (C) 2019 - 2021 ALiwoto
+	Copyright (C) 2019 - 2021 WotoTeam
 	This file is subject to the terms and conditions defined in
 	file 'LICENSE', which is part of the source code.
 -->
@@ -8,10 +8,11 @@
 # Last Testament Of Wanderers
 ====================================
 
-Welcome to the LTW source code! 
+Welcome to the LTW-client source code! 
 
 Last Testament Of Wanderers, is a open-source MMORPG game.
 From this repository you can build LTW game, all of the Contents are included.
+Also, some of the game data should be downloaded from the game servers when entring the game.
 
 
 <!--
@@ -31,24 +32,20 @@ https://icons8.com/vue-static/landings/pricing/icons8-license.pdf
 
  ## Supported Platforms
 
- We support only Windows and Linux right now.
- If there is a platform we don't support, please [make a request](https://github.com/ALiwoto/LTW/issues) or [come help us](CONTRIBUTING.md) add it.
+ We only support Windows and Linux right now.
+ If there is a platform we don't support, please [make a request](https://github.com/intellivoid/LTW-client/issues) or [come help us](CONTRIBUTING.md) add it.
 
  * Linux
-   * Ubuntu 20.04
-   * Ubuntu 19.10
-   * Ubuntu 19.04
+   * Ubuntu 19.04 or later.
+   * Arch linux
 
  * Windows
-   * Windows 7
-   * Windows 8
-   * Windows 8.1
-   * Windows 10
+   * Windows 7 or later.
 
 
 ## Support and Contributions
 
-If you think you have found a bug or have a feature request, feel free to use our [issue tracker](https://github.com/ALiwoto/LTW/issues). Before opening a new issue, please search to see if your problem has already been reported or not.  Try to be as detailed as possible in your issue reports.
+If you think you have found a bug or have a feature request, feel free to use our [issue tracker](https://github.com/intellivoid/LTW-client/issues). Before opening a new issue, please search to see if your problem has already been reported or not.  Try to be as detailed as possible in your issue reports.
 
 If you need help using LTW or have other questions we suggest you to join our [telegram community](https://t.me/LTW_Game).  Please do not use the GitHub issue tracker for personal support requests.
 
@@ -67,19 +64,19 @@ If you are interested in contributing fixes or features to LTW, please read our 
 
 **Advanced topics:**
 - You can update your master branch by executing:
-  - git pull https://github.com/ALiwoto/LTW.git master
+  - `git pull https://github.com/intellivoid/LTW-client.git master`
 - If your master is tainted and any branch you make contains junk, you can do **hard reset**. All unmerged commits on master branch will be lost.
-  - git checkout master
-  - git fetch https://github.com/ALiwoto/LTW.git master
-  - git reset --hard FETCH_HEAD
-  - git push --force origin master
+  - `git checkout master`
+  - `git fetch https://github.com/intellivoid/LTW-client.git master`
+  - `git reset --hard FETCH_HEAD`
+  - `git push --force origin master`
 
 
 ## Source Code
 
 The full source code is available here from GitHub:
 
- * Clone the source: `git clone https://github.com/ALiwoto/LTW.git`
+ * Clone the source: `git clone https://github.com/intellivoid/LTW-client.git`
  * Open the solution `LTW.sln` or project file `LTW/LTW.csproj`
 
 For the prerequisites for building from source, please look at the [Requirements](REQUIREMENTS.md) file.
