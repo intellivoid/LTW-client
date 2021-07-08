@@ -1,11 +1,29 @@
+/*
+ * This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
+ * Copyright (c) 2019-2021 WotoTeam.
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 2.
+ *
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this source code of library. 
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
 namespace LTW.Constants
 {
 	static class GameParams
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-		internal const int WOTO_STD_WIDTH = 1024;
-		internal const int WOTO_STD_HEIGHT = 768;
+		internal const float WOTO_STD_WIDTH = 1024;
+		internal const float WOTO_STD_HEIGHT = 768;
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region

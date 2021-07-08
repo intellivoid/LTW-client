@@ -1,10 +1,10 @@
 ﻿/*
- * This file is part of GUISharp Project (https://github.com/GUISharp/GUISharp).
- * Copyright (c) 2021 GUISharp Authors.
+ * This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
+ * Copyright (c) 2019-2021 WotoTeam.
  *
  * This library is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, version 3.
+ * the Free Software Foundation, version 2.
  *
  * This library is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -15,7 +15,6 @@
  * along with this source code of library. 
  * If not, see <http://www.gnu.org/licenses/>.
  */
-
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

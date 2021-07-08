@@ -1,3 +1,21 @@
+/*
+ * This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
+ * Copyright (c) 2019-2021 WotoTeam.
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 2.
+ *
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this source code of library. 
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
 using GUISharp.Client;
 using GUISharp.Logging;
 using LTW.Constants;
@@ -8,7 +26,7 @@ namespace LTW.Client
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-			// some members here
+		public const string GameData = "GameData";
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region

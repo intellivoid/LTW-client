@@ -1,3 +1,21 @@
+/*
+ * This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
+ * Copyright (c) 2019-2021 WotoTeam.
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 2.
+ *
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this source code of library. 
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -6,10 +24,6 @@ using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.Resources;
 using GUISharp.SandBox;
 using GUISharp.Controls;
-using GUISharp.Logging;
-using GUISharp.WotoProvider.Enums;
-using GUISharp.GUIObjects.Graphics;
-using LTW.SandBoxes;
 using static LTW.Constants.GameParams;
 
 namespace LTW.Screens
@@ -34,8 +48,8 @@ namespace LTW.Screens
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
-			LTW.SandBoxes.LoginProfileSandBox test = new();
-			//GUISharp.SandBox.ErrorSandBoxes.ConnectionClosedSandBox test = new();
+			//LTW.SandBoxes.LoginProfileSandBox test = new();
+			LTW.SandBoxes.ErrorSandBoxes.ConnectionClosedSandBox test = new();
 			var num = DateTime.Now.Second % MAX_BACK_ENTERY;
 			this.ChangeBackgroundRes(EntryFileNameInRes + num);
 			//---------------------------------------------
@@ -64,7 +78,7 @@ namespace LTW.Screens
 			//texts:
 			this.FirstFlatElement.SetLabelText();
 			//images:
-			this.FirstFlatElement.ChangeImage();
+			this.FirstFlatElement.ChangeImageContent();
 			//applyAndShow:
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();

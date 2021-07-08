@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
+	<!--
+		This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
+		Copyright (c) 2019-2021 WotoTeam.
+
+		This library is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, version 2.
+
+		This library is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details.
+
+		You should have received a copy of the GNU General Public License
+		along with this source code of library. 
+		If not, see <http://www.gnu.org/licenses/>.
+	-->
 	<!-- 
 		Microsoft ResX Schema 
 		
@@ -117,8 +134,8 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<data name="BackGName" xml:space="preserve">
-		<value>f_\\s_b_\\f_191020200758</value>
+	<data name="BackGName_Pic" xml:space="preserve">
+		<value>f_\s_b_\f_191020200758</value>
 		<comment>the background Image name in the data folder.</comment>
 	</data>
 	<data name="Button1_In_SandBox_E1" xml:space="preserve">
