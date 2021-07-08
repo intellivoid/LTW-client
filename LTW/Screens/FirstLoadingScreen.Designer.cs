@@ -49,7 +49,13 @@ namespace LTW.Screens
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
 			//LTW.SandBoxes.LoginProfileSandBox test = new();
-			LTW.SandBoxes.ErrorSandBoxes.ConnectionClosedSandBox test = new();
+			//LTW.SandBoxes.ErrorSandBoxes.ConnectionClosedSandBox test = new();
+			//LTW.SandBoxes.ErrorSandBoxes.LogedOutDoneSandBox test = new();
+			//LTW.SandBoxes.ErrorSandBoxes.LogOutWarningSandBox test = new();
+			//LTW.SandBoxes.ErrorSandBoxes.NoInternetConnectionSandBox test = new();
+			//LTW.SandBoxes.ErrorSandBoxes.ProfileLoadFailedSandBox test = new();
+			//LTW.SandBoxes.ErrorSandBoxes.ProfileWrongSandBox test = new();
+			LTW.SandBoxes.ErrorSandBoxes.UserAlreadyExistSandBox test = new();
 			var num = DateTime.Now.Second % MAX_BACK_ENTERY;
 			this.ChangeBackgroundRes(EntryFileNameInRes + num);
 			//---------------------------------------------

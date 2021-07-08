@@ -134,8 +134,8 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<data name="BackGName" xml:space="preserve">
-		<value>f_\\s_b_\\f_191020200758</value>
+	<data name="BackGName_Pic" xml:space="preserve">
+		<value>f_\s_b_\f_191020200758</value>
 		<comment>the background Image name in the data folder.</comment>
 	</data>
 	<data name="Button1_In_SandBox_E1" xml:space="preserve">

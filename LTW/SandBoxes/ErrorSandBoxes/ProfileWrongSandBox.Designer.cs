@@ -102,7 +102,7 @@ namespace LTW.SandBoxes.ErrorSandBoxes
 			this.BackButton.SetLabelText();
 			//images:
 			this.ChangeImageSizeMode(ImageSizeMode.Center);
-			this.ChangeImageDefault(this.MyRes.GetString(SandBoxBackGNameInRes));
+			this.ChangeImageContent(SandBoxBackGNameInRes, false);
 			//applyAndShow:
 			this.TitleElement.Apply();
 			this.TitleElement.Show();
