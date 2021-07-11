@@ -1,10 +1,11 @@
 namespace LTW.Core.Server
 {
-	public interface IServerable
+	public interface IServerResponse
 	{
 		//-------------------------------------------------
 		#region Properties Region
-			// some members here
+		bool Success { get; set; }
+		EndPointError Error { get; set; }
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region

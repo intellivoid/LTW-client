@@ -58,7 +58,7 @@ namespace LTW.Client
 			//finalBlow:
 			Task.Run(() =>
 			{
-				Thread.Sleep(1000);
+				Thread.Sleep(4000);
 				this.CurrentScreen.InitializeComponents();
 			});
 			//---------------------------------------------
