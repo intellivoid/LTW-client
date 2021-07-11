@@ -17,14 +17,17 @@
  */
 
 using System;
+using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using GUISharp.SandBox;
+using GUISharp.Controls;
 using GUISharp.GUIObjects.Texts;
 using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.Resources;
-using GUISharp.SandBox;
-using GUISharp.Controls;
-using static LTW.Constants.GameParams;
+using LTW.Core.Server;
+using LTW.SandBoxes.ErrorSandBoxes;
 
 namespace LTW.Screens
 {
@@ -55,7 +58,7 @@ namespace LTW.Screens
 			//LTW.SandBoxes.ErrorSandBoxes.NoInternetConnectionSandBox test = new();
 			//LTW.SandBoxes.ErrorSandBoxes.ProfileLoadFailedSandBox test = new();
 			//LTW.SandBoxes.ErrorSandBoxes.ProfileWrongSandBox test = new();
-			LTW.SandBoxes.ErrorSandBoxes.UserAlreadyExistSandBox test = new();
+			//LTW.SandBoxes.ErrorSandBoxes.UserAlreadyExistSandBox test = new();
 			var num = DateTime.Now.Second % MAX_BACK_ENTERY;
 			this.ChangeBackgroundRes(EntryFileNameInRes + num);
 			//---------------------------------------------
@@ -67,8 +70,8 @@ namespace LTW.Screens
 			//priorities:
 			this.FirstFlatElement.ChangePriority(ElementPriority.Low);
 			//sizes:
-			this.FirstFlatElement.ChangeSize(Woto_WRate * (this.Client.Width / 6),
-				Woto_HRate * (this.Client.Height / 6));
+			this.FirstFlatElement.ChangeSize(this.Client.PWidth / 6,
+				this.Client.PHeight / 6);
 			//ownering:
 			//locations:
 			this.FirstFlatElement.ChangeLocation((Client.Width - FirstFlatElement.Width) -
@@ -79,7 +82,7 @@ namespace LTW.Screens
 			//colors:
 			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			//enableds:
-			test.Enable();
+			//test.Enable();
 			this.FirstFlatElement.Enable();
 			//texts:
 			this.FirstFlatElement.SetLabelText();
@@ -88,14 +91,18 @@ namespace LTW.Screens
 			//applyAndShow:
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();
-			test.Apply();
-			test.Show();
+			//test.Apply();
+			//test.Show();
 			//events:
 			//---------------------------------------------
 			//addRanges:
-			this.AddElements(this.FirstFlatElement, test);
+			this.AddElements(this.FirstFlatElement);
 			//---------------------------------------------
 			//finalBlow:
+			Task.Run(() => {
+				Thread.Sleep(1500);
+				this.CheckForVersion();
+			});
 			//---------------------------------------------
 		}
 		#endregion
@@ -111,12 +118,52 @@ namespace LTW.Screens
 		#region overrided Method's Region
 		public override void Dispose()
 		{
-
+			
 		}
 		#endregion
 		//-------------------------------------------------
 		#region ordinary Method's Region
-			// some methods here
+		private void CheckForVersion()
+		{
+			var v = ThereIsServer.Actions.CheckVersion();
+
+			if (v.IsFailed || v.Data == null)
+			{
+				var n = NoInternetConnectionSandBox.PrepareNoInternetSandBox();
+				this.AddElement(n);
+				return;
+			}
+			
+			if (v.Data.IsAcceptable)
+			{
+				var c = ConnectionClosedSandBox.PrepareConnectionClosedSandBox();
+				this.AddElement(c);
+				return;
+				//TODO: go to the main menu
+			}
+			//---------------------------------------------
+			//news:
+			//---------------------------------------------
+			//names:
+			//status:
+			//fontAndTextAligns:
+			//priorities:
+			//sizes:
+			//ownering:
+			//locations:
+			//movements:
+			//colors:
+			//enableds:
+			//texts:
+			//images:
+			//applyAndShow:
+			//events:
+			//---------------------------------------------
+			//addRanges:
+			//---------------------------------------------
+			//finalBlow:
+			//---------------------------------------------
+		}
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region

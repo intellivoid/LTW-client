@@ -157,9 +157,10 @@ namespace LTW.Constants
 			//public static NoInternetConnectionSandBox ConnectionClosedSandBox { get; set; }
 			//--------------------------------------
 			//-----------------
-			public const string AppVersion = "1.1.1.5014";
+			public const string AppVersion = "2.1.1.5014";
+			public const string VersionHash = 
+				"f302bd7ffacbd295194f86620002b8250e8e9be0233a8055bcebc82c8612843ff9e0f09e42015d5e75581cc93d4c29a91388ed411641b543c8fb7b5a26a2a8b8";
 			public const string AppVerCodeName = "5014Re";
-			public const string AppVerToken = "";
 			public const string CompanyName = "wotoTeam";
 			public const string CompanyCopyRight = "© wotoTeam - 2021";
 			public const string DateTimeFormat = "ddd, dd MMM yyyy HH:mm:ss 'GMT'";

@@ -283,16 +283,13 @@ namespace LTW.SandBoxes.ErrorSandBoxes
 		#endregion
 		//-------------------------------------------------
 		#region static Method's Region
-		public static NoInternetConnectionSandBox PrepareConnectionClosedSandBox()
+		public static ConnectionClosedSandBox PrepareConnectionClosedSandBox()
 		{
-
-			return null;
-		}
-		public static NoInternetConnectionSandBox PrepareLogoutWarningSandBox()
-		{
-
-
-			return null;
+			var s = new ConnectionClosedSandBox();
+			s.Enable();
+			s.Apply();
+			s.Show();
+			return s;
 		}
 		#endregion
 		//-------------------------------------------------
