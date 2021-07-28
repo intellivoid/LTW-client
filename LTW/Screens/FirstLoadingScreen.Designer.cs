@@ -127,19 +127,19 @@ namespace LTW.Screens
 		{
 			var v = ThereIsServer.Actions.CheckVersion();
 
-			if (v.IsFailed || v.Data == null)
+			if (v.IsFailed || v.Data == null || !v.Data.Success)
 			{
 				var n = NoInternetConnectionSandBox.PrepareNoInternetSandBox();
 				this.AddElement(n);
 				return;
 			}
 			
-			if (v.Data.IsAcceptable)
+
+			if (v.Data.Results.IsAcceptable)
 			{
-				var c = ConnectionClosedSandBox.PrepareConnectionClosedSandBox();
-				this.AddElement(c);
-				return;
-				//TODO: go to the main menu
+				this.RemoveElements(true);
+				//this.LoadBackground()
+				this.OnDone();
 			}
 			//---------------------------------------------
 			//news:
@@ -167,12 +167,9 @@ namespace LTW.Screens
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region
-		private Texture2D LoadBackground()
+		private void LoadBackground()
 		{
-
-
-
-			return null;
+			
 		}
 		#endregion
 		//-------------------------------------------------

@@ -62,8 +62,6 @@ namespace LTW.Client
 				this.CurrentScreen.InitializeComponents();
 			});
 			//---------------------------------------------
-			
-			
 		}
 		#endregion
 		//-------------------------------------------------

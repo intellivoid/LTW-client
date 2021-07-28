@@ -1,8 +1,10 @@
+using System;
 using System.Text.Json;
 using System.Text;
 using System.Net;
 using System.Net.Http;
 using System.IO;
+using GUISharp.Logging;
 using LTW.Constants;
 using LTW.Core.Server.Versioning;
 
@@ -39,6 +41,11 @@ namespace LTW.Core.Server
 				catch (HttpRequestException)
 				{
 					return new(ErrorType.NoInternet);
+				}
+				catch (Exception e)
+				{
+					AppLogger.Log("ThereIsServer.CheckVersion: ", e);
+					return new(ErrorType.UnknownError);
 				}
 			}
 		}
