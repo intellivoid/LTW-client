@@ -32,8 +32,8 @@
 		... ado.net/XML headers & schema ...
 		<resheader name="resmimetype">text/microsoft-resx</resheader>
 		<resheader name="version">2.0</resheader>
-		<resheader name="reader">System.Resources.ResXResourceReader, LTW.SandBoxes.LoginProfileSandBox, ...</resheader>
-		<resheader name="writer">System.Resources.ResXResourceWriter, LTW.SandBoxes.LoginProfileSandBox, ...</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
 		<data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
 		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
 		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -129,28 +129,83 @@
 		<value>2.0</value>
 	</resheader>
 	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, LTW.SandBoxes.LoginProfileSandBox, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, LTW.SandBoxes.LoginProfileSandBox, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<data name="BackGName_PIC" type="System.Resources.ResXFileRef, LTW.SandBoxes.LoginProfileSandBox">
-		<value>..\Resources\sandboxes\f_191020200758.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	<data name="BackGName_Pic" xml:space="preserve">
+		<value>f_\s_b_\f_191020200758</value>
+		<comment>the background Image name in the data folder.</comment>
 	</data>
 	<data name="Button1_In_SandBox_E1" xml:space="preserve">
 		<value>Exit</value>
 	</data>
+	<data name="Button1_In_SandBox_E2" xml:space="preserve">
+		<value>back</value>
+	</data>
+	<data name="Button1_In_SandBox_E3" xml:space="preserve">
+		<value>cancel</value>
+	</data>
 	<data name="Button2_In_SandBox_E1" xml:space="preserve">
-		<value>Login</value>
+		<value>Retry</value>
+	</data>
+	<data name="Button2_In_SandBox_E2" xml:space="preserve">
+		<value>confirm</value>
+	</data>
+	<data name="Button2_In_SandBox_E3" xml:space="preserve">
+		<value>Exit!</value>
 	</data>
 	<data name="Label1_In_SandBox_E1" xml:space="preserve">
-		<value>Login or Sign up!</value>
+		<value>No Internet Connection!</value>
+	</data>
+	<data name="Label1_In_SandBox_E2" xml:space="preserve">
+		<value>User already exists!</value>
+	</data>
+	<data name="Label1_In_SandBox_E3" xml:space="preserve">
+		<value>Wrong Username or Password!</value>
+	</data>
+	<data name="Label1_In_SandBox_E4" xml:space="preserve">
+		<value>Couldn't Load!</value>
+	</data>
+	<data name="Label1_In_SandBox_E5" xml:space="preserve">
+		<value>Connection Closed!</value>
+	</data>
+	<data name="Label1_In_SandBox_E6" xml:space="preserve">
+		<value>Loged out Successfully!</value>
+	</data>
+	<data name="Label1_In_SandBox_E7" xml:space="preserve">
+		<value>Logout Warning!</value>
+	</data>
+	<data name="Label1_In_SandBox_E8" xml:space="preserve">
+		<value>Exit the game?</value>
 	</data>
 	<data name="Label2_In_SandBox_E1" xml:space="preserve">
-		<value>Enter your username:</value>
+		<value>Check the network connection and try again ...</value>
 	</data>
-	<data name="Label3_In_SandBox_E1" xml:space="preserve">
-		<value>Enter your password:</value>
+	<data name="Label2_In_SandBox_E2" xml:space="preserve">
+		<value>This username already exists in the game, if it is yours, try to sign in, otherwise please choose another username.</value>
+	</data>
+	<data name="Label2_In_SandBox_E3" xml:space="preserve">
+		<value>The Username or password is wrong, please try something else.</value>
+	</data>
+	<data name="Label2_In_SandBox_E4" xml:space="preserve">
+		<value>There is a problem and we couldn't load your profile!
+Please sign in again to your profile.</value>
+	</data>
+	<data name="Label2_In_SandBox_E5" xml:space="preserve">
+		<value>Connection is closed now!
+Please close the game and load it again.</value>
+	</data>
+	<data name="Label2_In_SandBox_E6" xml:space="preserve">
+		<value>Successfully loged out from your profile.
+You can login again anytime you want.</value>
+	</data>
+	<data name="Label2_In_SandBox_E7" xml:space="preserve">
+		<value>Confirm to logout from your profile?</value>
+	</data>
+	<data name="Label2_In_SandBox_E8" xml:space="preserve">
+		<value>Do you really wanna exit the game?</value>
 	</data>
 	<data name="SandBoxButton1_Name" xml:space="preserve">
 		<value>Button1_In_SandBox</value>
@@ -163,8 +218,5 @@
 	</data>
 	<data name="SandBoxLabel2_Name" xml:space="preserve">
 		<value>Label2_In_SandBox</value>
-	</data>
-	<data name="SandBoxLabel3_Name" xml:space="preserve">
-		<value>Label3_In_SandBox</value>
 	</data>
 </root>

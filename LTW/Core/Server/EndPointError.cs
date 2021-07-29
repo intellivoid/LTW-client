@@ -16,18 +16,15 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-using GUISharp.Client;
-using GUISharp.Logging;
-using LTW.Constants;
+using System.Text.Json.Serialization;
 
-namespace LTW.Client
+namespace LTW.Core.Server
 {
-	public sealed partial class GameClient : GUIClient
+	public sealed class EndPointError
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-		public const string GameData = "GameData";
-		public const int FirstScreenTimeout = 3000; // ms
+			// some members here
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
@@ -35,7 +32,10 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-			// some members here
+		[JsonPropertyName("type")]
+		public ErrorType ErrorType { get; set; }
+		[JsonPropertyName("message")]
+		public string Message { get; set; }
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region
@@ -55,11 +55,7 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		public GameClient() : base(ClientSizeMode.FullScreen)
-		{
-			MakeSingleRunner();
-			ThereIsConstants.Forming.GameClient = this;
-		}
+			// some members here
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region

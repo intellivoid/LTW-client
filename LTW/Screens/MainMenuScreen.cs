@@ -16,18 +16,19 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-using GUISharp.Client;
-using GUISharp.Logging;
-using LTW.Constants;
+using GUISharp.Screens;
+using GUISharp.Controls.Elements;
+using LTW.Client;
 
-namespace LTW.Client
+namespace LTW.Screens
 {
-	public sealed partial class GameClient : GUIClient
+	public sealed partial class MainMenuScreen : Screen
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-		public const string GameData = "GameData";
-		public const int FirstScreenTimeout = 3000; // ms
+		private const int MAX_BACK_ENTERY = 8;
+		private const string FirstLabelNameInRes = "Label1";
+		private const string BackgroundFileNameInRes = "Aincrad";
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
@@ -35,7 +36,8 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-			// some members here
+		public bool Initialized { get; private set; }
+		public FlatElement FirstFlatElement { get; private set;}
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region
@@ -55,10 +57,9 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		public GameClient() : base(ClientSizeMode.FullScreen)
+		public MainMenuScreen(GameClient client) : base(client)
 		{
-			MakeSingleRunner();
-			ThereIsConstants.Forming.GameClient = this;
+			
 		}
 		#endregion
 		//-------------------------------------------------

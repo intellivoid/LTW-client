@@ -31,7 +31,7 @@ using LTW.SandBoxes.ErrorSandBoxes;
 
 namespace LTW.Screens
 {
-	partial class FirstLoadingScreen
+	partial class MainMenuScreen
 	{
 		//-------------------------------------------------
 		#region Initialize Method's Region
@@ -47,7 +47,7 @@ namespace LTW.Screens
 			}
 			//---------------------------------------------
 			//news:
-			this.MyRes = new WotoRes(typeof(FirstLoadingScreen));
+			this.MyRes = new WotoRes(typeof(MainMenuScreen));
 			this.FirstFlatElement = new FlatElement(this, 
 				ElementMovements.NoMovements);
 			this.FirstFlatElement.SetLabelName(FirstLabelNameInRes);
@@ -59,8 +59,17 @@ namespace LTW.Screens
 			//LTW.SandBoxes.ErrorSandBoxes.ProfileLoadFailedSandBox test = new();
 			//LTW.SandBoxes.ErrorSandBoxes.ProfileWrongSandBox test = new();
 			//LTW.SandBoxes.ErrorSandBoxes.UserAlreadyExistSandBox test = new();
-			var num = DateTime.Now.Second % MAX_BACK_ENTERY;
-			this.ChangeBackgroundRes(EntryFileNameInRes + num);
+			int num;
+			int nowH = DateTime.Now.ToLocalTime().Hour;
+			if (nowH < 19 && nowH > 7)
+			{
+				num = 1;
+			}
+			else
+			{
+				num = 2;
+			}
+			this.ChangeBackgroundRes(BackgroundFileNameInRes + num);
 			//---------------------------------------------
 			//names:
 			//status:
@@ -99,10 +108,6 @@ namespace LTW.Screens
 			this.AddElements(this.FirstFlatElement);
 			//---------------------------------------------
 			//finalBlow:
-			Task.Run(() => {
-				Thread.Sleep(1500);
-				this.CheckForVersion();
-			});
 			//---------------------------------------------
 		}
 		#endregion
@@ -123,30 +128,18 @@ namespace LTW.Screens
 		#endregion
 		//-------------------------------------------------
 		#region ordinary Method's Region
+		#if OLD_FIRST_LOADING_MODULE_ALGORITHM
 		private void CheckForVersion()
 		{
 			var v = ThereIsServer.Actions.CheckVersion();
 
 			if (v.IsFailed || v.Data == null || !v.Data.Success)
 			{
-				noInternet();
+				var n = NoInternetConnectionSandBox.PrepareNoInternetSandBox();
+				this.AddElement(n);
 				return;
 			}
 			
-			if (v.Data.Error != null)
-			{
-				switch (v.Data.Error.ErrorType)
-				{
-					case ErrorType.NoInternet:
-					case ErrorType.UnknownError:
-						noInternet();
-						return;
-					case ErrorType.ServerBreak:
-					case ErrorType.ServerUnavailable:
-						serverBreak();
-						return;
-				}
-			}
 
 			if (v.Data.Results.IsAcceptable)
 			{
@@ -174,18 +167,9 @@ namespace LTW.Screens
 			//addRanges:
 			//---------------------------------------------
 			//finalBlow:
-			void noInternet()
-			{
-				var n = NoInternetConnectionSandBox.PrepareNoInternetSandBox();
-				this.AddElement(n);
-			}
-			void serverBreak()
-			{
-				var n = ServerBreakSandBox.PrepareServerBreakSandBox();
-				this.AddElement(n);
-			}
 			//---------------------------------------------
 		}
+		#endif // OLD_FIRST_LOADING_MODULE_ALGORITHM
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region

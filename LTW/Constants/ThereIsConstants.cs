@@ -1,7 +1,20 @@
-﻿// Last Testament of Wanderers 
-// Copyright (C) 2019 - 2021 ALiwoto
-// This file is subject to the terms and conditions defined in
-// file 'LICENSE', which is part of the source code.
+﻿/*
+ * This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
+ * Copyright (c) 2019-2021 WotoTeam.
+ *
+ * This game client is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 2.
+ *
+ * This game client is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this source code of game client. 
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
 
 using System;
 using System.IO;
@@ -144,9 +157,10 @@ namespace LTW.Constants
 			//public static NoInternetConnectionSandBox ConnectionClosedSandBox { get; set; }
 			//--------------------------------------
 			//-----------------
-			public const string AppVersion = "1.1.1.5014";
+			public const string AppVersion = "2.1.1.5014";
+			public const string VersionHash = 
+				"f302bd7ffacbd295194f86620002b8250e8e9be0233a8055bcebc82c8612843ff9e0f09e42015d5e75581cc93d4c29a91388ed411641b543c8fb7b5a26a2a8b8";
 			public const string AppVerCodeName = "5014Re";
-			public const string AppVerToken = "";
 			public const string CompanyName = "wotoTeam";
 			public const string CompanyCopyRight = "© wotoTeam - 2021";
 			public const string DateTimeFormat = "ddd, dd MMM yyyy HH:mm:ss 'GMT'";

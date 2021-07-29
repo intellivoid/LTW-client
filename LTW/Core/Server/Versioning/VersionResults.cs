@@ -16,18 +16,15 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-using GUISharp.Client;
-using GUISharp.Logging;
-using LTW.Constants;
+using System.Text.Json.Serialization;
 
-namespace LTW.Client
+namespace LTW.Core.Server.Versioning
 {
-	public sealed partial class GameClient : GUIClient
+	public sealed class VersionResults
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-		public const string GameData = "GameData";
-		public const int FirstScreenTimeout = 3000; // ms
+			// some members here
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
@@ -35,7 +32,15 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-			// some members here
+
+		[JsonPropertyName("is_acceptable")]
+		public bool IsAcceptable { get; set; }
+		
+		[JsonPropertyName("data_download_link")]
+		public string DataDownloadLink { get; set; }
+
+		[JsonPropertyName("app_download_link")]
+		public string AppDownloadLink { get; set; }
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region
@@ -55,11 +60,7 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		public GameClient() : base(ClientSizeMode.FullScreen)
-		{
-			MakeSingleRunner();
-			ThereIsConstants.Forming.GameClient = this;
-		}
+			// some members here
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region

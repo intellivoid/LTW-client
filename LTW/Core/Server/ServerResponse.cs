@@ -1,38 +1,30 @@
-/*
- * This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
- * Copyright (c) 2019-2021 WotoTeam.
- *
- * This game client is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, version 2.
- *
- * This game client is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this source code of game client. 
- * If not, see <http://www.gnu.org/licenses/>.
- */
 
-namespace LTW.Constants
+
+namespace LTW.Core.Server
 {
-	static class GameParams
+	public sealed class ServerResponse<T>
+		where T: class, IServerResponse
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-		internal const float WOTO_STD_WIDTH = 1024;
-		internal const float WOTO_STD_HEIGHT = 768;
+			// some members here
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
-		internal static float Woto_WRate { get; set; }
-		internal static float Woto_HRate { get; set; }
+			// some members here
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-			// some members here
+		public bool Success { get; internal set; }
+		public bool IsFailed
+		{
+			get
+			{
+				return Error != ErrorType.NoError;
+			}
+		}
+		public T Data { get; }
+		public ErrorType Error { get; } = ErrorType.NoError;
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region
@@ -52,7 +44,15 @@ namespace LTW.Constants
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-			// some members here
+		public ServerResponse(ErrorType error)
+		{
+			Error = error;
+		}
+		public ServerResponse(T data)
+		{
+			Data = data;
+			Success = true;
+		}
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region

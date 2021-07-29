@@ -18,31 +18,25 @@
 
 using Microsoft.Xna.Framework;
 using GUISharp.WotoProvider.Enums;
-using GUISharp.SandBox;
 using GUISharp.Controls;
 using GUISharp.GUIObjects.Texts;
 using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.Graphics;
-using static LTW.Constants.GameParams;
+using GUISharp.SandBox;
 
-namespace LTW.SandBoxes
+namespace LTW.SandBoxes.ErrorSandBoxes
 {
-	partial class LoginProfileSandBox
+	partial class ProfileWrongSandBox
 	{
 		//-------------------------------------------------
 		#region Initialize Method's Region
 		private void InitializeComponent()
 		{
-			Content.RootDirectory = "GameData";
 			//---------------------------------------------
 			//news:
 			this.TitleElement = new FlatElement(this, true);
-			this.UnameElement = new FlatElement(this, true);
-			this.PassElement = new FlatElement(this, true);
-			this.UnameInputElement = new InputElement(this);
-			this.PassInputElement = new InputElement(this);
-			this.ExitButton = new ButtonElement(this);
-			this.LoginButton = new ButtonElement(this);
+			this.BodyElement = new FlatElement(this, true);
+			this.BackButton = new ButtonElement(this);
 			//---------------------------------------------
 			//loading:
 			this.LeftTexture = BigRes.GetAsTexture2D(LEFT_BABYLONIA_ENTRANCE);
@@ -50,141 +44,72 @@ namespace LTW.SandBoxes
 			this.LineTexture = BigRes.GetAsTexture2D(LINE_BABYLONIA_ENTRANCE);
 			//names:
 			this.TitleElement.SetLabelName(SandBoxLabel1NameInRes);
-			this.UnameElement.SetLabelName(SandBoxLabel2NameInRes);
-			this.PassElement.SetLabelName(SandBoxLabel3NameInRes);
-			this.ExitButton.SetLabelName(SandBoxButton1NameInRes);
-			this.LoginButton.SetLabelName(SandBoxButton2NameInRes);
+			this.BodyElement.SetLabelName(SandBoxLabel2NameInRes);
+			this.BackButton.SetLabelName(SandBoxButton1NameInRes);
 			//status:
 			this.TitleElement.SetStatus(1);
-			this.UnameElement.SetStatus(1);
-			this.PassElement.SetStatus(1);
-			this.UnameInputElement.SetStatus(1);
-			this.PassInputElement.SetStatus(1);
-			this.ExitButton.SetStatus(1);
-			this.LoginButton.SetStatus(1);
+			this.BodyElement.SetStatus(1);
+			this.BackButton.SetStatus(1);
 			//fontAndTextAligns:
 			this.TitleElement.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 28));
-			this.UnameElement.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 24));
-			this.PassElement.ChangeFont(this.UnameElement.Font);
-			this.UnameInputElement.ChangeFont(this.UnameElement.Font);
-			this.PassInputElement.ChangeFont(this.UnameElement.Font);
-			this.ExitButton.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 23));
-			this.LoginButton.ChangeFont(ExitButton.Font);
+			this.BodyElement.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 26));
+			this.BackButton.ChangeFont(FontManager.GetSprite(GUISharp_Fonts.GUISharp_tt_regular, 25));
 			this.TitleElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
-			this.UnameElement.ChangeAlignmation(StringAlignmation.MiddleLeft);
-			this.PassElement.ChangeAlignmation(StringAlignmation.MiddleLeft);
-			this.UnameInputElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
-			this.PassInputElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
-			this.ExitButton.ChangeAlignmation(StringAlignmation.MiddleCenter);
-			this.LoginButton.ChangeAlignmation(StringAlignmation.MiddleCenter);
+			this.BodyElement.ChangeAlignmation(StringAlignmation.MiddleCenter);
+			this.BackButton.ChangeAlignmation(StringAlignmation.MiddleCenter);
 			//priorities:
-			this.SandBoxPriority = SandBoxPriority.LowSandBox;
+			this.SandBoxPriority = SandBoxPriority.LowErrorSandBox;
 			this.TitleElement.ChangePriority(ElementPriority.Normal);
-			this.UnameElement.ChangePriority(ElementPriority.Normal);
-			this.PassElement.ChangePriority(ElementPriority.Normal);
-			this.UnameInputElement.ChangePriority(ElementPriority.VeryHigh);
-			this.PassInputElement.ChangePriority(ElementPriority.VeryHigh);
-			this.ExitButton.ChangePriority(ElementPriority.High);
-			this.LoginButton.ChangePriority(ElementPriority.High);
+			this.BodyElement.ChangePriority(ElementPriority.Normal);
+			this.BackButton.ChangePriority(ElementPriority.High);
 			//sizes:
-			this.ChangeSize(Woto_WRate * (2f * (GameClient.Width / 5)), 
-				Woto_HRate * (3f * (GameClient.Height / 5)));
+			this.ChangeSize(2f * (BigClient.PWidth / 5), 
+				BigClient.PHeight / 3);
 			this.TitleElement.ChangeSize(Width - from_the_edge,
-				(Height / 4) - (SeparatorLine_Height / 2));
-			this.UnameElement.ChangeSize(Width - 
-				(3 * from_the_edge),
-				(2 * (Height / 15)) -
-				(SeparatorLine_Height / 2));
-			this.UnameInputElement.ChangeSize();
-			this.UnameInputElement.ChangeSize(this.UnameElement.Width - 
-				(2 * from_the_edge),
-				this.UnameInputElement.Height);
-			this.PassInputElement.ChangeSize();
-			this.PassInputElement.ChangeSize(this.UnameInputElement.Rectangle.Size);
-			this.PassElement.ChangeSize(this.UnameElement.Rectangle.Size);
-			this.ExitButton.ChangeSize();
-			this.LoginButton.ChangeSize();
+						(Height / 3) - (SeparatorLine_Height / 2));
+			this.BodyElement.ChangeSize(Width - from_the_edge,
+				(1 * (Height / 3)) - (SeparatorLine_Height / 2));
+			this.BackButton.ChangeSize();
 			//ownering:
 			this.TitleElement.SetOwner(this);
-			this.UnameElement.SetOwner(this);
-			this.UnameInputElement.SetOwner(this);
-			this.PassInputElement.SetOwner(this);
-			this.PassElement.SetOwner(this);
-			this.ExitButton.SetOwner(this);
-			this.LoginButton.SetOwner(this);
+			this.BodyElement.SetOwner(this);
+			this.BackButton.SetOwner(this);
 			//locations:
 			this.CenterToScreen();
 			this.TitleElement.ChangeLocation(from_the_edge / 2, 0);
-			this.UnameElement.ChangeLocation(TitleElement.RealPosition.X +
-				from_the_edge, 
-				TitleElement.RealPosition.Y + TitleElement.Height + 
-				SeparatorLine_Height);
-			this.UnameInputElement.ChangeLocation(this.UnameElement.RealPosition.X +
-				from_the_edge, this.UnameElement.RealPosition.Y + 
-				this.UnameElement.Height + (from_the_edge / 2));
-			this.PassElement.ChangeLocation(this.UnameElement.RealPosition.X,
-				this.UnameInputElement.RealPosition.Y + 
-				this.UnameInputElement.Height + from_the_edge);
-			this.PassInputElement.ChangeLocation(this.UnameInputElement.RealPosition.X,
-				this.PassElement.RealPosition.Y + 
-				this.PassElement.Height + (from_the_edge / 2));
-			this.ExitButton.ChangeLocation((this.Width / 2) -
-				this.ExitButton.Width - (from_the_edge / 2),
-				this.Height - this.ExitButton.Height -
+			this.BodyElement.ChangeLocation(TitleElement.RealPosition.X, TitleElement.RealPosition.Y +
+				TitleElement.Height + SeparatorLine_Height);
+			this.BackButton.ChangeLocation((this.Width / 2) -
+				(this.BackButton.Width / 2),
+				this.BodyElement.RealPosition.Y + this.BodyElement.Height +
 				(2 * from_the_edge));
-			this.LoginButton.ChangeLocation((this.Width / 2) +
-				(from_the_edge / 2),
-				this.ExitButton.RealPosition.Y);
 			//rectangles:
 			this.CalculateTexturesRect();
 			//movements:
 			this.TitleElement.ChangeMovements(ElementMovements.NoMovements);
-			this.UnameElement.ChangeMovements(ElementMovements.NoMovements);
-			this.PassElement.ChangeMovements(ElementMovements.NoMovements);
+			this.BodyElement.ChangeMovements(ElementMovements.NoMovements);
 			//colors:
 			this.TitleElement.ChangeForeColor(Color.White);
-			this.UnameElement.ChangeForeColor(Color.White);
-			this.PassElement.ChangeForeColor(Color.White);
-			this.UnameInputElement.ChangeBorder(InputBorders.NoBorder);
-			this.PassInputElement.ChangeBorder(InputBorders.NoBorder);
-			this.ExitButton.ChangeBorder(ButtonColors.SpecialRed);
-			this.LoginButton.ChangeBorder(ButtonColors.SpecialGreenYellow);
+			this.BodyElement.ChangeForeColor(Color.White);
+			this.BackButton.ChangeBorder(ButtonColors.SpecialWhiteSmoke);
 			//enableds:
 			this.TitleElement.EnableOwnerMover();
-			this.UnameElement.EnableOwnerMover();
-			this.PassElement.EnableOwnerMover();
-			this.UnameInputElement.Enable();
-			this.PassInputElement.Enable();
-			this.UnameInputElement.EnableMouseEnterEffect();
-			this.PassInputElement.EnablePasswordMode();
-			this.PassInputElement.EnableMouseEnterEffect();
-			this.ExitButton.EnableMouseEnterEffect();
-			this.LoginButton.EnableMouseEnterEffect();
+			this.BodyElement.EnableOwnerMover();
+			this.BackButton.EnableMouseEnterEffect();
 			//texts:
 			this.TitleElement.SetLabelText();
-			this.UnameElement.SetLabelText();
-			this.PassElement.SetLabelText();
-			this.ExitButton.SetLabelText();
-			this.LoginButton.SetLabelText();
+			this.BodyElement.SetLabelText();
+			this.BackButton.SetLabelText();
 			//images:
-			var t = Content.Load<Microsoft.Xna.Framework.Graphics.Texture2D>("f_/s_b_/f_191020200758");
-			this.ChangeImage(t);
 			this.ChangeImageSizeMode(ImageSizeMode.Center);
+			this.ChangeImageContent(SandBoxBackGNameInRes, false);
 			//applyAndShow:
 			this.TitleElement.Apply();
 			this.TitleElement.Show();
-			this.UnameElement.Apply();
-			this.UnameElement.Show();
-			this.UnameInputElement.Apply();
-			this.UnameInputElement.Show();
-			this.PassElement.Apply();
-			this.PassElement.Show();
-			this.PassInputElement.Apply();
-			this.PassInputElement.Show();
-			this.ExitButton.Apply();
-			this.ExitButton.Show();
-			this.LoginButton.Apply();
-			this.LoginButton.Show();
+			this.BodyElement.Apply();
+			this.BodyElement.Show();
+			this.BackButton.Apply();
+			this.BackButton.Show();
 			//events:
 			//---------------------------------------------
 			//addRanges:
@@ -276,7 +201,7 @@ namespace LTW.SandBoxes
 				const int start_point = from_the_edge * 2;
 				const int off_set = (2 * from_the_edge / 5) + (4 * from_the_edge);
 				int x, y, w, h;
-				int c_y = (int)(Height / 6) - (SeparatorLine_Height / 2);
+				int c_y = (int)(Height / 4) - (SeparatorLine_Height / 2);
 				int max1 = MathHelper.Max(this.LeftTexture.Height, this.RightTexture.Height);
 				max1 = MathHelper.Max(max1, this.LineTexture.Height);
 				int find_c = c_y + (max1 / 2);
@@ -302,14 +227,14 @@ namespace LTW.SandBoxes
 				this.RightTextureRealLocation = new(x, y);
 				this.RightTextureRectangle = new(x, y, w, h);
 				//---------------------------------------------
-				FinalBlow();
+				finalBlow();
 			}
 			else
 			{
-				AnotherBlow();
+				anotherBlow();
 			}
 
-			void FinalBlow()
+			void finalBlow()
 			{
 				Point loc;
 				//-----------------------------------------
@@ -323,7 +248,7 @@ namespace LTW.SandBoxes
 				this.RightTextureRectangle = new(loc, this.RightTextureRectangle.Size);
 				//-----------------------------------------
 			}
-			void AnotherBlow()
+			void anotherBlow()
 			{
 				Point loc;
 				//-----------------------------------------

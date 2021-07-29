@@ -19,83 +19,51 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GUISharp.Controls.Elements;
-using GUISharp.SandBox;
-using LTW.Client;
-using LTW.Constants;
+using GUISharp.SandBox.ErrorSandBoxes;
 
-namespace LTW.SandBoxes
+namespace LTW.SandBoxes.ErrorSandBoxes
 {
-	public sealed partial class LoginProfileSandBox : SandBoxBase
+	public sealed partial class ConnectionClosedSandBox : ErrorSandBox
 	{
 		//-------------------------------------------------
 		#region Constant's Region
+		public const string LEFT_BABYLONIA_ENTRANCE		= "f_080320212007";
+		public const string RIGHT_BABYLONIA_ENTRANCE	= "f_080320212008";
+		public const string LINE_BABYLONIA_ENTRANCE		= "f_080320212009";
 		/// <summary>
 		/// The name of MessageLabel1 in the Resources without _name,
-		/// Login or Sign up!
+		/// 
 		/// </summary>
 		public const string SandBoxLabel1NameInRes = "SandBoxLabel1";
 		/// <summary>
 		/// The name of MessageLabel2 in the Resources without _name,
-		/// Enter your username:
+		/// 
 		/// </summary>
 		public const string SandBoxLabel2NameInRes = "SandBoxLabel2";
-		
-		/// <summary>
-		/// The name of MessageLabel3 in the Resources without _name,
-		/// Enter your password:
-		/// </summary>
-		public const string SandBoxLabel3NameInRes = "SandBoxLabel3";
 		/// <summary>
 		/// The name of Button1 in the Resources without _name,
-		/// Exit button.
+		/// 
 		/// </summary>
 		public const string SandBoxButton1NameInRes = "SandBoxButton1";
-		/// <summary>
-		/// The name of Button1 in the Resources without _name,
-		/// Login button.
-		/// </summary>
-		public const string SandBoxButton2NameInRes = "SandBoxButton2";
 		/// <summary>
 		/// The background Image key in the <see cref="GraphicElement.MyRes"/>.
 		/// </summary>
 		public const string SandBoxBackGNameInRes = "BackGName";
-		public const string LEFT_BABYLONIA_ENTRANCE	 = "f_080320212007";
-		public const string RIGHT_BABYLONIA_ENTRANCE	= "f_080320212008";
-		public const string LINE_BABYLONIA_ENTRANCE	 = "f_080320212009";
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-		public GameClient GameClient
-		{
-			get => ThereIsConstants.Forming.GameClient;
-		}
 		/// <summary>
 		/// the title flat element of this sandbox.
 		/// </summary>
 		public FlatElement TitleElement { get; private set; }
 		/// <summary>
-		/// the Flat element for username.
-		/// `Enter your username:`
+		/// the body element of this sandbox.
 		/// </summary>
-		public FlatElement UnameElement { get; private set; }
-		/// <summary>
-		/// the Flat element for password.
-		/// `Enter your password:`
-		/// </summary>
-		public FlatElement PassElement { get; private set; }
-		/// <summary>
-		/// the Input element for username.
-		/// </summary>
-		public InputElement UnameInputElement { get; set; }
-		/// <summary>
-		/// the Input element for password.
-		/// </summary>
-		public InputElement PassInputElement { get; set; }
+		public FlatElement BodyElement { get; private set; }
 		/// <summary>
 		/// the exit button of this sandbox.
 		/// </summary>
 		public ButtonElement ExitButton { get; private set; }
-		public ButtonElement LoginButton { get; private set; }
 		public Texture2D LeftTexture { get; private set; }
 		public Texture2D RightTexture { get; private set; }
 		public Texture2D LineTexture { get; private set; }
@@ -123,14 +91,14 @@ namespace LTW.SandBoxes
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		internal LoginProfileSandBox() : base()
+		public ConnectionClosedSandBox() : base()
 		{
 			InitializeComponent();
 		}
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region
-		~LoginProfileSandBox()
+		~ConnectionClosedSandBox()
 		{
 			return;
 		}
