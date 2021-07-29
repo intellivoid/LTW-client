@@ -80,6 +80,7 @@ namespace LTW.Client
 			//news:
 			this.CurrentScreen?.Dispose();
 			this.CurrentScreen = new MainMenuScreen(this);
+			
 			//---------------------------------------------
 			//names:
 			//status:

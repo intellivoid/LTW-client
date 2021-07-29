@@ -19,14 +19,12 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using GUISharp.SandBox;
 using GUISharp.Controls;
 using GUISharp.GUIObjects.Texts;
 using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.Resources;
-using LTW.Constants;
-using LTW.Core.Server;
-using LTW.SandBoxes.ErrorSandBoxes;
 using static LTW.Constants.ThereIsConstants;
 
 namespace LTW.Screens
@@ -70,6 +68,13 @@ namespace LTW.Screens
 				num = 2;
 			}
 			this.ChangeBackgroundRes(BackgroundFileNameInRes + num);
+			this.Songs = new()
+			{
+				this.ContentManager.Load<Song>(StoryOfThePastFileNameInRes),
+				this.ContentManager.Load<Song>(ToTheGrandLineFileNameInRes)
+			};
+			MediaPlayer.IsRepeating = false;
+			MediaPlayer.Play(this.Songs[this.CurrentMusicIndex]);
 			//---------------------------------------------
 			//names:
 			//status:
@@ -88,6 +93,7 @@ namespace LTW.Screens
 				(Client.Height - FirstFlatElement.Height) -
 				(2 * SandBoxBase.from_the_edge));
 			//movements:
+			this.FirstFlatElement.ChangeMovements(ElementMovements.HorizontalMovements);
 			//colors:
 			this.FirstFlatElement.ChangeForeColor(Color.DarkSeaGreen);
 			//enableds:
@@ -103,6 +109,8 @@ namespace LTW.Screens
 			//test.Apply();
 			//test.Show();
 			//events:
+			MediaPlayer.MediaStateChanged -= MediaPlayer_MediaStateChanged;
+			MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
 			//---------------------------------------------
 			//addRanges:
 			AppSettings.GlobalTiming.AddElement(this.FirstFlatElement);
@@ -118,13 +126,48 @@ namespace LTW.Screens
 		#endregion
 		//-------------------------------------------------
 		#region event Method's Region
-			// some methods here
+		private void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
+		{
+			if (MediaPlayer.State == MediaState.Stopped && this.Songs != null)
+			{
+				if (this.CurrentMusicIndex == this.Songs.Length - 1)
+				{
+					this.CurrentMusicIndex = default;
+				}
+				else
+				{
+					this.CurrentMusicIndex++;
+				}
+				var s = this.Songs[this.CurrentMusicIndex];
+				if (s == null || s.IsDisposed)
+				{
+					return;
+				}
+				MediaPlayer.Play(s);
+			}
+		}
 		#endregion
 		//-------------------------------------------------
 		#region overrided Method's Region
 		public override void Dispose()
 		{
-			
+			foreach (var s in this.Songs)
+			{
+				s?.Dispose();
+			}
+
+		}
+		public void DisposeSongs()
+		{
+			if (this.Songs == null)
+			{
+				return;
+			}
+			foreach (var s in this.Songs)
+			{
+				s?.Dispose();
+			}
+			this.Songs = null;
 		}
 		#endregion
 		//-------------------------------------------------
@@ -174,9 +217,9 @@ namespace LTW.Screens
 		#endregion
 		//-------------------------------------------------
 		#region Get Method's Region
-		private void LoadBackground()
+		private void LoadMusic()
 		{
-			
+			var s = this.ContentManager.Load<Microsoft.Xna.Framework.Media.Song>("");
 		}
 		#endregion
 		//-------------------------------------------------
