@@ -17,8 +17,6 @@
  */
 
 using System;
-using System.Threading.Tasks;
-using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using GUISharp.SandBox;
@@ -26,8 +24,10 @@ using GUISharp.Controls;
 using GUISharp.GUIObjects.Texts;
 using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.Resources;
+using LTW.Constants;
 using LTW.Core.Server;
 using LTW.SandBoxes.ErrorSandBoxes;
+using static LTW.Constants.ThereIsConstants;
 
 namespace LTW.Screens
 {
@@ -94,9 +94,9 @@ namespace LTW.Screens
 			//test.Enable();
 			this.FirstFlatElement.Enable();
 			//texts:
-			this.FirstFlatElement.SetLabelText();
+			//this.FirstFlatElement.SetLabelText(ThereIsConstants.AppSettings.GlobalTiming.GetString(false));
 			//images:
-			this.FirstFlatElement.ChangeImageContent();
+			//this.FirstFlatElement.ChangeImageContent();
 			//applyAndShow:
 			this.FirstFlatElement.Apply();
 			this.FirstFlatElement.Show();
@@ -105,6 +105,7 @@ namespace LTW.Screens
 			//events:
 			//---------------------------------------------
 			//addRanges:
+			AppSettings.GlobalTiming.AddElement(this.FirstFlatElement);
 			this.AddElements(this.FirstFlatElement);
 			//---------------------------------------------
 			//finalBlow:
