@@ -32,8 +32,8 @@
 		... ado.net/XML headers & schema ...
 		<resheader name="resmimetype">text/microsoft-resx</resheader>
 		<resheader name="version">2.0</resheader>
-		<resheader name="reader">System.Resources.ResXResourceReader, LTW.Screens.FirstLoadingScreen, ...</resheader>
-		<resheader name="writer">System.Resources.ResXResourceWriter, LTW.Screens.FirstLoadingScreen, ...</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, LTW.Screens.MainMenuScreen, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, LTW.Screens.MainMenuScreen, ...</resheader>
 		<data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
 		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
 		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -129,12 +129,12 @@
 		<value>2.0</value>
 	</resheader>
 	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, LTW.Screens.FirstLoadingScreen, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceReader, LTW.Screens.MainMenuScreen, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, LTW.Screens.FirstLoadingScreen, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+		<value>System.Resources.ResXResourceWriter, LTW.Screens.MainMenuScreen, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<assembly alias="LTW.Screens.FirstLoadingScreen" name="LTW.Screens.FirstLoadingScreen, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+	<assembly alias="LTW.Screens.MainMenuScreen" name="LTW.Screens.MainMenuScreen, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
 	<!--===================================================-->
 	<data name="FirstLabel_E1" xml:space="preserve">
 		<value>Connecting...</value>
@@ -149,29 +149,11 @@
 		<value>FirstLabel</value>
 	</data>
 	<!--===================================================-->
-	<data name="BackEntry0" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry0.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	<data name="Aincrad1" type="System.Resources.ResXFileRef, LTW.Screens.MainMenuScreen">
+		<value>..\Resources\screens\main_menu_screen\Aincrad1.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</data>
-	<data name="BackEntry1" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry1.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</data>
-	<data name="BackEntry2" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry2.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</data>
-	<data name="BackEntry3" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry3.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</data>
-	<data name="BackEntry4" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry4.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</data>
-	<data name="BackEntry5" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry5.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</data>
-	<data name="BackEntry6" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry6.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</data>
-	<data name="BackEntry7" type="System.Resources.ResXFileRef, LTW.Screens.FirstLoadingScreen">
-		<value>..\Resources\screens\first_loadoing_screen\BackEntry7.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	<data name="Aincrad2" type="System.Resources.ResXFileRef, LTW.Screens.MainMenuScreen">
+		<value>..\Resources\screens\main_menu_screen\Aincrad2.bin;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</data>
 	<!--===================================================-->
 </root>

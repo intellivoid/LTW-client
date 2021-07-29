@@ -139,17 +139,23 @@
 		<comment>the background Image name in the data folder.</comment>
 	</data>
 	<data name="Button1_In_SandBox_E1" xml:space="preserve">
-		<value>back</value>
+		<value>Exit</value>
+	</data>
+	<data name="Button2_In_SandBox_E1" xml:space="preserve">
+		<value>Retry</value>
 	</data>
 	<data name="Label1_In_SandBox_E1" xml:space="preserve">
-		<value>Loged out Successfully!</value>
+		<value>Server not avilable!</value>
 	</data>
 	<data name="Label2_In_SandBox_E1" xml:space="preserve">
-		<value>Successfully logged out from your profile.
-You can login again anytime you want.</value>
+		<value>Server is not avilable at the moment, 
+please try again later...</value>
 	</data>
 	<data name="SandBoxButton1_Name" xml:space="preserve">
 		<value>Button1_In_SandBox</value>
+	</data>
+	<data name="SandBoxButton2_Name" xml:space="preserve">
+		<value>Button2_In_SandBox</value>
 	</data>
 	<data name="SandBoxLabel1_Name" xml:space="preserve">
 		<value>Label1_In_SandBox</value>

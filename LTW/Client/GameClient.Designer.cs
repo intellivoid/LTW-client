@@ -2,20 +2,21 @@
  * This file is part of LTW Project (https://github.com/intellivoid/LTW-client).
  * Copyright (c) 2019-2021 WotoTeam.
  *
- * This library is free software: you can redistribute it and/or modify
+ * This game client is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, version 2.
  *
- * This library is distributed in the hope that it will be useful, but
+ * This game client is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this source code of library. 
+ * along with this source code of game client. 
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.Threading.Tasks;
 using System.Threading;
 using LTW.Screens;
@@ -52,13 +53,15 @@ namespace LTW.Client
 			//images:
 			//applyAndShow:
 			//events:
+			this.CurrentScreen.Done -= FirstScreen_Done;
+			this.CurrentScreen.Done += FirstScreen_Done;
 			//---------------------------------------------
 			//addRanges:
 			//---------------------------------------------
 			//finalBlow:
 			Task.Run(() =>
 			{
-				Thread.Sleep(4000);
+				Thread.Sleep(FirstScreenTimeout);
 				this.CurrentScreen.InitializeComponents();
 			});
 			//---------------------------------------------
@@ -70,7 +73,37 @@ namespace LTW.Client
 		#endregion
 		//-------------------------------------------------
 		#region event Method's Region
-			// some methods here
+		private void FirstScreen_Done(object sender, EventArgs e)
+		{
+			//---------------------------------------------
+			//---------------------------------------------
+			//news:
+			this.CurrentScreen?.Dispose();
+			this.CurrentScreen = new MainMenuScreen(this);
+			//---------------------------------------------
+			//names:
+			//status:
+			//fontAndTextAligns:
+			//priorities:
+			//sizes:
+			//ownering:
+			//locations:
+			//movements:
+			//colors:
+			//enableds:
+			//texts:
+			//images:
+			//applyAndShow:
+			//events:
+			//this.CurrentScreen.Done -= FirstScreen_Done;
+			//this.CurrentScreen.Done += FirstScreen_Done;
+			//---------------------------------------------
+			//addRanges:
+			//---------------------------------------------
+			//finalBlow:
+			this.CurrentScreen.InitializeComponents();
+			//---------------------------------------------
+		}
 		#endregion
 		//-------------------------------------------------
 		#region overrided Method's Region

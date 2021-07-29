@@ -16,15 +16,19 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Text.Json.Serialization;
+using GUISharp.Screens;
+using GUISharp.Controls.Elements;
+using LTW.Client;
 
-namespace LTW.Core.Server.Versioning
+namespace LTW.Screens
 {
-	public sealed class VersionResponse : IServerResponse
+	public sealed partial class MainMenuScreen : Screen
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-			// some members here
+		private const int MAX_BACK_ENTERY = 8;
+		private const string FirstLabelNameInRes = "Label1";
+		private const string BackgroundFileNameInRes = "Aincrad";
 		#endregion
 		//-------------------------------------------------
 		#region static Properties Region
@@ -32,14 +36,8 @@ namespace LTW.Core.Server.Versioning
 		#endregion
 		//-------------------------------------------------
 		#region Properties Region
-		[JsonPropertyName("success")]
-		public bool Success { get; set; }
-
-		[JsonPropertyName("error")]
-		public EndPointError Error { get; set; }
-		
-		[JsonPropertyName("result")]
-		public VersionResults Results { get; set; }
+		public bool Initialized { get; private set; }
+		public FlatElement FirstFlatElement { get; private set;}
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region
@@ -59,7 +57,10 @@ namespace LTW.Core.Server.Versioning
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-			// some members here
+		public MainMenuScreen(GameClient client) : base(client)
+		{
+			
+		}
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region

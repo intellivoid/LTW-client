@@ -45,7 +45,7 @@ namespace LTW.Core.Server
 				catch (Exception e)
 				{
 					AppLogger.Log("ThereIsServer.CheckVersion: ", e);
-					return new(ErrorType.UnknownError);
+					return new(ErrorType.ServerUnavailable);
 				}
 			}
 		}

@@ -23,7 +23,7 @@ using GUISharp.SandBox.ErrorSandBoxes;
 
 namespace LTW.SandBoxes.ErrorSandBoxes
 {
-	public sealed partial class LogedOutDoneSandBox : ErrorSandBox
+	public sealed partial class ServerBreakSandBox : ErrorSandBox
 	{
 		//-------------------------------------------------
 		#region Constant's Region
@@ -46,6 +46,11 @@ namespace LTW.SandBoxes.ErrorSandBoxes
 		/// </summary>
 		public const string SandBoxButton1NameInRes = "SandBoxButton1";
 		/// <summary>
+		/// The name of Button1 in the Resources without _name,
+		/// 
+		/// </summary>
+		public const string SandBoxButton2NameInRes = "SandBoxButton2";
+		/// <summary>
 		/// The background Image key in the <see cref="GraphicElement.MyRes"/>.
 		/// </summary>
 		public const string SandBoxBackGNameInRes = "BackGName";
@@ -61,9 +66,13 @@ namespace LTW.SandBoxes.ErrorSandBoxes
 		/// </summary>
 		public FlatElement BodyElement { get; private set; }
 		/// <summary>
-		/// the okay button of this sandbox.
+		/// the exit button of this sandbox.
 		/// </summary>
-		public ButtonElement BackButton { get; private set; }
+		public ButtonElement ExitButton { get; private set; }
+		/// <summary>
+		/// the retry button element in sandbox.
+		/// </summary>
+		public ButtonElement RetryButton { get; private set; }
 		public Texture2D LeftTexture { get; private set; }
 		public Texture2D RightTexture { get; private set; }
 		public Texture2D LineTexture { get; private set; }
@@ -87,18 +96,18 @@ namespace LTW.SandBoxes.ErrorSandBoxes
 		#endregion
 		//-------------------------------------------------
 		#region field's Region
-
+		
 		#endregion
 		//-------------------------------------------------
 		#region Constructor's Region
-		internal LogedOutDoneSandBox() : base()
+		internal ServerBreakSandBox() : base()
 		{
 			InitializeComponent();
 		}
 		#endregion
 		//-------------------------------------------------
 		#region Destructor's Region
-		~LogedOutDoneSandBox()
+		~ServerBreakSandBox()
 		{
 			return;
 		}
