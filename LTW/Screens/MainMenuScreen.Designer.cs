@@ -108,13 +108,13 @@ namespace LTW.Screens
 			this.FirstFlatElement.Enable();
 			this.StartItem.Enable();
 			this.StartItem.EnableMouseEnterEffect();
-			this.StartItem.Stable();
+			this.StartItem.Unstable();
 			this.SettingsItem.Enable();
 			this.SettingsItem.EnableMouseEnterEffect();
-			this.SettingsItem.Stable();
+			this.SettingsItem.Unstable();
 			this.ExitItem.Enable();
 			this.ExitItem.EnableMouseEnterEffect();
-			this.ExitItem.Stable();
+			this.ExitItem.Unstable();
 			//texts:
 			this.StartItem.SetLabelText();
 			this.SettingsItem.SetLabelText();
