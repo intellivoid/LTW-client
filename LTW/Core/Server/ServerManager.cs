@@ -21,8 +21,8 @@ namespace LTW.Core.Server
 		//-------------------------------------------------
 		#region field's Region
 		private ServerInfo _main_server = 
-			//new("http://app-4e35feec-e8f6-41f9-bddf-199daa1af58f.cleverapps.io/");
-			new("http://0.0.0.0:8080/");
+			new("http://app-4e35feec-e8f6-41f9-bddf-199daa1af58f.cleverapps.io/");
+			//new("http://0.0.0.0:8080/");
 		#endregion
 		//-------------------------------------------------
 		#region static event field's Region

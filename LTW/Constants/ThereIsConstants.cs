@@ -17,16 +17,15 @@
  */
 
 using System;
-using System.IO;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.IO.MemoryMappedFiles;
 using System.Globalization;
 using WotoProvider;
 using WotoProvider.Interfaces;
 using LTW.Client;
 using GUISharp.Controls;
 using GUISharp.Security;
+using AppTime = WotoProvider.Interfaces.IDateProvider<System.DateTime, 
+	GUISharp.Controls.Trigger, GUISharp.Security.StrongString>;
 
 namespace LTW.Constants
 {
@@ -47,10 +46,6 @@ namespace LTW.Constants
 				throw new NotImplementedException();
 			}
 
-			internal static IDateProvider<DateTime, Trigger, StrongString> ToDateTime(StrongString strongString)
-			{
-				throw new NotImplementedException();
-			}
 		}
 		public struct Path
 		{
@@ -153,9 +148,6 @@ namespace LTW.Constants
 			public static CultureInfo CultureInfo { get; set; } = new CultureInfo("en-US");
 			//-----------------
 			//--------------------------------------
-			public static bool IsShowingClosedSandBox { get; set; } = false;
-			//public static NoInternetConnectionSandBox ConnectionClosedSandBox { get; set; }
-			//--------------------------------------
 			//-----------------
 			public const string AppVersion = "2.1.1.5014";
 			public const string VersionHash = 
@@ -163,21 +155,14 @@ namespace LTW.Constants
 			public const string AppVerCodeName = "5014Re";
 			public const string CompanyName = "wotoTeam";
 			public const string CompanyCopyRight = "© wotoTeam - 2021";
-			public const string DateTimeFormat = "ddd, dd MMM yyyy HH:mm:ss 'GMT'";
+			public const string DateTimeFormat = "dd/MM/yyyy HH:mm:ss";
 			public const string TimeFormat = "HH:mm:ss";
 			public const string TimeRequestURL = @"https://microsoft.com";
-			public const string ConnectionURL = @"http://google.com/generate_204";
-			public const string DateHeaderKey = "date";
 			//-----------------
 			public const int MAXIMUM_PROFILE = 64;
 			//-----------------
 			public const StringSplitOptions SplitOption = StringSplitOptions.RemoveEmptyEntries;
 			//-------------------------------------
-			/// <summary>
-			/// Determine whether <see cref="GlobalTiming"/>, has been set with 
-			/// interner: <see cref="TimeRequestURL"/>, or not.
-			/// </summary>
-			public static bool DateTimeSettedWithNet { get; set; } = false;
 			/// <summary>
 			/// The Time Worker.
 			/// </summary>
@@ -188,11 +173,10 @@ namespace LTW.Constants
 			/// <see cref="GlobalTiming"/>
 			/// </summary>
 			public static Trigger GlobalTimingWorker { get; set; }
-			public static MemoryMappedFile Memory { get; internal set; }
 			/// <summary>
 			/// Global Date and Time Parameter.
 			/// </summary>
-			public static IDateProvider<DateTime, Trigger, StrongString> GlobalTiming { get; set; }
+			public static AppTime GlobalTiming { get; set; }
 			/// <summary>
 			/// the default time out for database.
 			/// </summary>

@@ -41,6 +41,10 @@ namespace LTW.Core.Server.Versioning
 
 		[JsonPropertyName("app_download_link")]
 		public string AppDownloadLink { get; set; }
+
+
+		[JsonPropertyName("server_time")]
+		public string ServerTime { get; set; }
 		#endregion
 		//-------------------------------------------------
 		#region static field's Region

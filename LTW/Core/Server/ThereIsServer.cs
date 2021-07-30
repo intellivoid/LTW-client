@@ -34,6 +34,27 @@ namespace LTW.Core.Server
 					var ver = JsonSerializer.Deserialize(str, typeof(VersionResponse));
 					if (ver is VersionResponse verR)
 					{
+						if (verR.Results != null)
+						{
+							if (!string.IsNullOrWhiteSpace(verR.Results.ServerTime))
+							{
+								// ddd, dd MMM yyyy HH:mm:ss 'GMT'
+								// yyyy-mm-dd HH:mm:ss.fffffffff 
+								//DateTime.Parse(verR.Results.ServerTime);
+								// DateTime.Parse(verR.Results.ServerTime, )
+								//DateTimeOffset.Parse(verR.Results.ServerTime);
+								try
+								{
+									var p = DateProvider.Parse(verR.Results.ServerTime);
+									p.StartTicking();
+									ThereIsConstants.AppSettings.GlobalTiming = p;
+								}
+								catch
+								{
+									return new(ErrorType.ServerUnavailable);
+								}
+							}
+						}
 						return new(verR);
 					}
 					return new(ErrorType.UnknownError);
@@ -62,8 +83,6 @@ namespace LTW.Core.Server
 
 			internal const string LTWVersionKey = "ltw_version";
 			internal const string LTWVersionHashKey = "ltw_version_hash";
-
-
 			internal const string GetVersionPath = "get_version";
 			#endregion
 			//---------------------------------------------
