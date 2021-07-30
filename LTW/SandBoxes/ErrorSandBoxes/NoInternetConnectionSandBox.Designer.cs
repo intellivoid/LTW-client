@@ -106,9 +106,13 @@ namespace LTW.SandBoxes.ErrorSandBoxes
 			this.RetryButton.ChangeBorder(ButtonColors.SpecialGreenYellow);
 			//enableds:
 			this.TitleElement.EnableOwnerMover();
+			this.TitleElement.Stable();
 			this.BodyElement.EnableOwnerMover();
+			this.BodyElement.Stable();
 			this.ExitButton.EnableMouseEnterEffect();
+			this.ExitButton.Stable();
 			this.RetryButton.EnableMouseEnterEffect();
+			this.RetryButton.Stable();
 			//texts:
 			this.TitleElement.SetLabelText();
 			this.BodyElement.SetLabelText();
