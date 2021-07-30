@@ -21,6 +21,7 @@ using GUISharp.Controls.Elements;
 using GUISharp.GUIObjects.WMath;
 using Microsoft.Xna.Framework.Media;
 using LTW.Client;
+using LTW.Controls;
 
 namespace LTW.Screens
 {
@@ -28,8 +29,10 @@ namespace LTW.Screens
 	{
 		//-------------------------------------------------
 		#region Constant's Region
-		private const int MAX_BACK_ENTERY = 8;
 		private const string FirstLabelNameInRes = "Label1";
+		private const string StartItemNameInRes = "Item1";
+		private const string SettingsItemNameInRes = "Item2";
+		private const string ExitItemNameInRes = "Item3";
 		private const string BackgroundFileNameInRes = "Aincrad";
 		private const string StoryOfThePastFileNameInRes = "s_/s_290720212001";
 		private const string ToTheGrandLineFileNameInRes = "s_/s_290720212002";
@@ -40,9 +43,12 @@ namespace LTW.Screens
 		//-------------------------------------------------
 		#region Properties Region
 		public bool Initialized { get; private set; }
-		public FlatElement FirstFlatElement { get; private set;}
+		public FlatElement FirstFlatElement { get; private set; }
+		public MenuItem StartItem { get; private set; }
+		public MenuItem SettingsItem { get; private set; }
+		public MenuItem ExitItem { get; private set; }
 		public GameClient GameClient { get; }
-		public ListW<Song> Songs {get; private set;}
+		public ListW<Song> Songs { get; private set; }
 		public int CurrentMusicIndex { get; private set; }
 		#endregion
 		//-------------------------------------------------
